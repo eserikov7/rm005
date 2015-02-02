@@ -12,6 +12,7 @@
 
 @property(nonatomic,readonly) NSURL *url;
 
+@property(nonatomic,readonly) NSString *login;
 @property(nonatomic,readonly) NSString *serverName;
 @property(nonatomic,readonly) NSString *serverDomain;
 

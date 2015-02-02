@@ -44,10 +44,25 @@
                                       parameters:nil
                                          success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                              
-                                         }
-                                         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                             accountLogin = login;
+                                             accountPassword = password;
                                              
+                                         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                             accountLogin = login;
+                                             accountPassword = @"";
                                          }];
+}
+
+- (NSString*)login
+{
+    return accountLogin;
+}
+
+- (NSURL*)url
+{
+    if(accountLogin.length>0 && accountPassword.length>0)
+        return [self serverURLBy:_serverDomain login:accountLogin password:accountPassword];
+    return nil;
 }
 
 - (NSURL*)serverURLBy:(NSString*)domain
