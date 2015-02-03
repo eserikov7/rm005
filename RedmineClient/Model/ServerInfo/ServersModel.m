@@ -7,10 +7,14 @@
 //
 
 #import "ServersModel.h"
+#import "NetworkingManager.h"
+#import "Constants.h"
+#import "AppStorage.h"
 
 @implementation ServersModel
 {
     NSMutableArray *servers;
+    AppStorage *appStorage;
 }
 
 + (instancetype)instance
@@ -25,13 +29,20 @@
 
 + (ServerInfo*)activeServer
 {
-    return nil;
+    return [ServersModel instance].activeServerInfo;
 }
 
 - (instancetype)init
 {
     self = [super init];
-    
+    appStorage = [[AppStorage alloc] init];
+    _activeServerInfo = [appStorage objectForKey:kActiveAccount];
+    if(_activeServerInfo)
+        [_activeServerInfo updateAccountInfoSuccess:^{
+            [appStorage setObject:_activeServerInfo forKey:kActiveAccount];
+        } failure:^(NSError *error) {
+            
+        }];
     return self;
 }
 
@@ -40,4 +51,26 @@
     return servers;
 }
 
+
+- (void)loginWithUser:(NSString*)login
+             password:(NSString*)password
+              success:(void (^)())success
+              failure:(void (^)( NSError *error))failure
+{
+    
+    ServerInfo * serverInfo = [[ServerInfo alloc] initWithServerName:kGlobusServerName
+                                                        serverDomain:kGlobusServerDomain];
+    
+    [serverInfo loginWithUser:login
+                     password:password
+                      success:^{
+                          _activeServerInfo = serverInfo;
+                          [appStorage setObject:serverInfo forKey:kActiveAccount];
+                          if(success)
+                              success();
+                      } failure:^(NSError *error) {
+                          if(failure)
+                              failure(error);
+                      }];
+}
 @end

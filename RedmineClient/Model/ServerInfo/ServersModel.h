@@ -17,6 +17,11 @@
 + (ServerInfo*)activeServer;
 
 @property(nonatomic,readonly)NSArray* serversList;
+@property(nonatomic,readonly)ServerInfo* activeServerInfo;
 
+- (void)loginWithUser:(NSString*)login
+             password:(NSString*)password
+              success:(void (^)())success
+              failure:(void (^)( NSError *error))failure;
 
 @end

@@ -13,12 +13,19 @@
 @property(nonatomic,readonly) NSURL *url;
 
 @property(nonatomic,readonly) NSString *login;
+@property(nonatomic,readonly) NSString *firstName;
+@property(nonatomic,readonly) NSString *lastName;
+
+
 @property(nonatomic,readonly) NSString *serverName;
 @property(nonatomic,readonly) NSString *serverDomain;
 
 
 - (instancetype)initWithServerName:(NSString*)serverName
                       serverDomain:(NSString*)serverDomain;
+
+- (void)updateAccountInfoSuccess:(void (^)())success
+                         failure:(void (^)( NSError *error))failure;
 
 - (void)loginWithUser:(NSString*)login
              password:(NSString*)password

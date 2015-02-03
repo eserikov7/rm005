@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ServersModel.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,14 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+    if([ServersModel activeServer])
+    {
+        UIViewController*vc = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"appTabBarController"];
+        self.window.rootViewController = vc;
+        [self.window makeKeyAndVisible];
+    }
+
     return YES;
 }
 

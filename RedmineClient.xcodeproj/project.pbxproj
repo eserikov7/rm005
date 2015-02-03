@@ -19,6 +19,10 @@
 		61C802A41A802B5D00AAB29D /* ServersModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C802A31A802B5D00AAB29D /* ServersModel.m */; };
 		61C802AF1A802ED600AAB29D /* ErrorHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C802A61A802ED600AAB29D /* ErrorHandler.m */; };
 		61C802B01A802ED600AAB29D /* NetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C802A91A802ED600AAB29D /* NetworkingManager.m */; };
+		61C802B71A814E3700AAB29D /* UILoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C802B61A814E3700AAB29D /* UILoginVC.m */; };
+		61C802BB1A81551B00AAB29D /* UIView+Roundify.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C802BA1A81551B00AAB29D /* UIView+Roundify.m */; };
+		61C802BD1A815FCC00AAB29D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 61C802BC1A815FCC00AAB29D /* Localizable.strings */; };
+		61C802C01A8168BC00AAB29D /* AppStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C802BF1A8168BC00AAB29D /* AppStorage.m */; };
 		A58F309CAE9A323B25026335 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1B65950B408879EA6434C64 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +60,13 @@
 		61C802A81A802ED600AAB29D /* NetworkingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkingManager.h; sourceTree = "<group>"; };
 		61C802A91A802ED600AAB29D /* NetworkingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkingManager.m; sourceTree = "<group>"; };
 		61C802B31A80309800AAB29D /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		61C802B51A814E3700AAB29D /* UILoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILoginVC.h; sourceTree = "<group>"; };
+		61C802B61A814E3700AAB29D /* UILoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILoginVC.m; sourceTree = "<group>"; };
+		61C802B91A81551B00AAB29D /* UIView+Roundify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Roundify.h"; sourceTree = "<group>"; };
+		61C802BA1A81551B00AAB29D /* UIView+Roundify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Roundify.m"; sourceTree = "<group>"; };
+		61C802BC1A815FCC00AAB29D /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		61C802BE1A8168BC00AAB29D /* AppStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppStorage.h; sourceTree = "<group>"; };
+		61C802BF1A8168BC00AAB29D /* AppStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppStorage.m; sourceTree = "<group>"; };
 		8B755BC75D43BE5C3E060E06 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		946748745295FD55F0588F68 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C1B65950B408879EA6434C64 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +122,7 @@
 		61C802701A801B5F00AAB29D /* RedmineClient */ = {
 			isa = PBXGroup;
 			children = (
+				61C802B81A81551B00AAB29D /* 3rd */,
 				61C8029A1A80279900AAB29D /* Model */,
 				61C8029B1A80279900AAB29D /* ViewControllers */,
 				61C802751A801B5F00AAB29D /* AppDelegate.h */,
@@ -122,6 +134,7 @@
 				61C802831A801B5F00AAB29D /* LaunchScreen.xib */,
 				61C802781A801B5F00AAB29D /* RedmineClient.xcdatamodeld */,
 				61C802711A801B5F00AAB29D /* Supporting Files */,
+				61C802BC1A815FCC00AAB29D /* Localizable.strings */,
 			);
 			path = RedmineClient;
 			sourceTree = "<group>";
@@ -168,6 +181,7 @@
 		61C8029B1A80279900AAB29D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				61C802B41A814E1F00AAB29D /* Login */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -175,6 +189,8 @@
 		61C8029D1A8029E400AAB29D /* AppDataStorage */ = {
 			isa = PBXGroup;
 			children = (
+				61C802BE1A8168BC00AAB29D /* AppStorage.h */,
+				61C802BF1A8168BC00AAB29D /* AppStorage.m */,
 			);
 			path = AppDataStorage;
 			sourceTree = "<group>";
@@ -197,6 +213,24 @@
 				61C802A91A802ED600AAB29D /* NetworkingManager.m */,
 			);
 			path = NetworkingManager;
+			sourceTree = "<group>";
+		};
+		61C802B41A814E1F00AAB29D /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				61C802B51A814E3700AAB29D /* UILoginVC.h */,
+				61C802B61A814E3700AAB29D /* UILoginVC.m */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		61C802B81A81551B00AAB29D /* 3rd */ = {
+			isa = PBXGroup;
+			children = (
+				61C802B91A81551B00AAB29D /* UIView+Roundify.h */,
+				61C802BA1A81551B00AAB29D /* UIView+Roundify.m */,
+			);
+			path = 3rd;
 			sourceTree = "<group>";
 		};
 		FFFD911E12F6EDA85F0BA2B0 /* Pods */ = {
@@ -292,6 +326,7 @@
 			files = (
 				61C802801A801B5F00AAB29D /* Main.storyboard in Resources */,
 				61C802851A801B5F00AAB29D /* LaunchScreen.xib in Resources */,
+				61C802BD1A815FCC00AAB29D /* Localizable.strings in Resources */,
 				61C802821A801B5F00AAB29D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,6 +378,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61C802BB1A81551B00AAB29D /* UIView+Roundify.m in Sources */,
 				61C802AF1A802ED600AAB29D /* ErrorHandler.m in Sources */,
 				61C802B01A802ED600AAB29D /* NetworkingManager.m in Sources */,
 				61C802771A801B5F00AAB29D /* AppDelegate.m in Sources */,
@@ -350,7 +386,9 @@
 				61C8027D1A801B5F00AAB29D /* ViewController.m in Sources */,
 				61C802A11A802B4600AAB29D /* ServerInfo.m in Sources */,
 				61C802A41A802B5D00AAB29D /* ServersModel.m in Sources */,
+				61C802B71A814E3700AAB29D /* UILoginVC.m in Sources */,
 				61C802741A801B5F00AAB29D /* main.m in Sources */,
+				61C802C01A8168BC00AAB29D /* AppStorage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
