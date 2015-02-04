@@ -155,13 +155,17 @@
                 login:(NSString*)login
              password:(NSString*)password
 {
+    NSURL*url = [NSURL URLWithString:domain];
+    url.user = login;
+    url.password = password;
+    
     return [NSURL URLWithString:[[NSString stringWithFormat:kServerUrl,[NSString stringWithFormat:@"%@:%@",login,password],domain] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 }
 
 - (NSURL*)serverURLBy:(NSString*)domain
                apiKey:(NSString*)key
 {
-    return [NSURL URLWithString:[[NSString stringWithFormat:kServerUrl,key,domain] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    return [NSURL URLWithString:[domain stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 }
 
 @end

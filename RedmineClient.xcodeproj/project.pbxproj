@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		61950E5C1A824F5E0044D06D /* TimeEntries.m in Sources */ = {isa = PBXBuildFile; fileRef = 61950E5B1A824F5E0044D06D /* TimeEntries.m */; };
 		61C802741A801B5F00AAB29D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C802731A801B5F00AAB29D /* main.m */; };
 		61C802771A801B5F00AAB29D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C802761A801B5F00AAB29D /* AppDelegate.m */; };
 		61C8027A1A801B5F00AAB29D /* RedmineClient.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 61C802781A801B5F00AAB29D /* RedmineClient.xcdatamodeld */; };
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		61950E5A1A824F5E0044D06D /* TimeEntries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeEntries.h; sourceTree = "<group>"; };
+		61950E5B1A824F5E0044D06D /* TimeEntries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeEntries.m; sourceTree = "<group>"; };
 		61C8026E1A801B5F00AAB29D /* RedmineClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedmineClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61C802721A801B5F00AAB29D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61C802731A801B5F00AAB29D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -97,6 +100,15 @@
 				C1B65950B408879EA6434C64 /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		61950E591A824F520044D06D /* TimeEntries */ = {
+			isa = PBXGroup;
+			children = (
+				61950E5A1A824F5E0044D06D /* TimeEntries.h */,
+				61950E5B1A824F5E0044D06D /* TimeEntries.m */,
+			);
+			path = TimeEntries;
 			sourceTree = "<group>";
 		};
 		61C802651A801B5F00AAB29D = {
@@ -168,6 +180,7 @@
 		61C8029A1A80279900AAB29D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				61950E591A824F520044D06D /* TimeEntries */,
 				61C802B31A80309800AAB29D /* Constants.h */,
 				61C802A51A802ED600AAB29D /* ErrorHandler.h */,
 				61C802A61A802ED600AAB29D /* ErrorHandler.m */,
@@ -387,6 +400,7 @@
 				61C802A11A802B4600AAB29D /* ServerInfo.m in Sources */,
 				61C802A41A802B5D00AAB29D /* ServersModel.m in Sources */,
 				61C802B71A814E3700AAB29D /* UILoginVC.m in Sources */,
+				61950E5C1A824F5E0044D06D /* TimeEntries.m in Sources */,
 				61C802741A801B5F00AAB29D /* main.m in Sources */,
 				61C802C01A8168BC00AAB29D /* AppStorage.m in Sources */,
 			);
