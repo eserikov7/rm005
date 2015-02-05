@@ -34,11 +34,13 @@
     [manager GET:[[url absoluteString] stringByAppendingString:@"?f[]=user_id&op[user_id]==&v[user_id][]=me&limit=90"]
       parameters:nil
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             
              if(responseObject)
              {
                  [self parce:responseObject];
                  
              }
+             
              if(success)
                  success();
              

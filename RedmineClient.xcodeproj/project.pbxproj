@@ -28,6 +28,12 @@
 		61C802BB1A81551B00AAB29D /* UIView+Roundify.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C802BA1A81551B00AAB29D /* UIView+Roundify.m */; };
 		61C802BD1A815FCC00AAB29D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 61C802BC1A815FCC00AAB29D /* Localizable.strings */; };
 		61C802C01A8168BC00AAB29D /* AppStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C802BF1A8168BC00AAB29D /* AppStorage.m */; };
+		61C806A41A83E2BC00AAB29D /* ProjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C806A31A83E2BC00AAB29D /* ProjectModel.m */; };
+		61C806A71A83E2CD00AAB29D /* IssueModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C806A61A83E2CD00AAB29D /* IssueModel.m */; };
+		61C806AB1A83EA6A00AAB29D /* UISettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C806AA1A83EA6A00AAB29D /* UISettingsVC.m */; };
+		61C806AE1A840C0100AAB29D /* ProjectsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C806AD1A840C0100AAB29D /* ProjectsManager.m */; };
+		61C806B51A8419C700AAB29D /* UIProjectsListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C806B41A8419C700AAB29D /* UIProjectsListVC.m */; };
+		61C806B81A841FD700AAB29D /* UIIssuesListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C806B71A841FD700AAB29D /* UIIssuesListVC.m */; };
 		A58F309CAE9A323B25026335 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1B65950B408879EA6434C64 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +88,18 @@
 		61C802BC1A815FCC00AAB29D /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		61C802BE1A8168BC00AAB29D /* AppStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppStorage.h; sourceTree = "<group>"; };
 		61C802BF1A8168BC00AAB29D /* AppStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppStorage.m; sourceTree = "<group>"; };
+		61C806A21A83E2BC00AAB29D /* ProjectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectModel.h; sourceTree = "<group>"; };
+		61C806A31A83E2BC00AAB29D /* ProjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectModel.m; sourceTree = "<group>"; };
+		61C806A51A83E2CD00AAB29D /* IssueModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssueModel.h; sourceTree = "<group>"; };
+		61C806A61A83E2CD00AAB29D /* IssueModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IssueModel.m; sourceTree = "<group>"; };
+		61C806A91A83EA6A00AAB29D /* UISettingsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISettingsVC.h; sourceTree = "<group>"; };
+		61C806AA1A83EA6A00AAB29D /* UISettingsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISettingsVC.m; sourceTree = "<group>"; };
+		61C806AC1A840C0100AAB29D /* ProjectsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectsManager.h; sourceTree = "<group>"; };
+		61C806AD1A840C0100AAB29D /* ProjectsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectsManager.m; sourceTree = "<group>"; };
+		61C806B31A8419C700AAB29D /* UIProjectsListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIProjectsListVC.h; sourceTree = "<group>"; };
+		61C806B41A8419C700AAB29D /* UIProjectsListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIProjectsListVC.m; sourceTree = "<group>"; };
+		61C806B61A841FD700AAB29D /* UIIssuesListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIIssuesListVC.h; sourceTree = "<group>"; };
+		61C806B71A841FD700AAB29D /* UIIssuesListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIIssuesListVC.m; sourceTree = "<group>"; };
 		8B755BC75D43BE5C3E060E06 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		946748745295FD55F0588F68 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C1B65950B408879EA6434C64 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -215,6 +233,7 @@
 		61C8029A1A80279900AAB29D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				61C806A11A83E2A200AAB29D /* Issues */,
 				61950E591A824F520044D06D /* TimeEntries */,
 				61C802B31A80309800AAB29D /* Constants.h */,
 				61C802A51A802ED600AAB29D /* ErrorHandler.h */,
@@ -229,6 +248,8 @@
 		61C8029B1A80279900AAB29D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				61C806AF1A8418CB00AAB29D /* Issues */,
+				61C806A81A83EA5800AAB29D /* Settings */,
 				61950E5D1A8367690044D06D /* Time */,
 				61C802B41A814E1F00AAB29D /* Login */,
 			);
@@ -280,6 +301,39 @@
 				61C802BA1A81551B00AAB29D /* UIView+Roundify.m */,
 			);
 			path = 3rd;
+			sourceTree = "<group>";
+		};
+		61C806A11A83E2A200AAB29D /* Issues */ = {
+			isa = PBXGroup;
+			children = (
+				61C806A21A83E2BC00AAB29D /* ProjectModel.h */,
+				61C806A31A83E2BC00AAB29D /* ProjectModel.m */,
+				61C806A51A83E2CD00AAB29D /* IssueModel.h */,
+				61C806A61A83E2CD00AAB29D /* IssueModel.m */,
+				61C806AC1A840C0100AAB29D /* ProjectsManager.h */,
+				61C806AD1A840C0100AAB29D /* ProjectsManager.m */,
+			);
+			path = Issues;
+			sourceTree = "<group>";
+		};
+		61C806A81A83EA5800AAB29D /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				61C806A91A83EA6A00AAB29D /* UISettingsVC.h */,
+				61C806AA1A83EA6A00AAB29D /* UISettingsVC.m */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		61C806AF1A8418CB00AAB29D /* Issues */ = {
+			isa = PBXGroup;
+			children = (
+				61C806B31A8419C700AAB29D /* UIProjectsListVC.h */,
+				61C806B41A8419C700AAB29D /* UIProjectsListVC.m */,
+				61C806B61A841FD700AAB29D /* UIIssuesListVC.h */,
+				61C806B71A841FD700AAB29D /* UIIssuesListVC.m */,
+			);
+			path = Issues;
 			sourceTree = "<group>";
 		};
 		FFFD911E12F6EDA85F0BA2B0 /* Pods */ = {
@@ -427,13 +481,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61C806B51A8419C700AAB29D /* UIProjectsListVC.m in Sources */,
 				61C802BB1A81551B00AAB29D /* UIView+Roundify.m in Sources */,
+				61C806B81A841FD700AAB29D /* UIIssuesListVC.m in Sources */,
+				61C806AB1A83EA6A00AAB29D /* UISettingsVC.m in Sources */,
 				61C802AF1A802ED600AAB29D /* ErrorHandler.m in Sources */,
 				61C802B01A802ED600AAB29D /* NetworkingManager.m in Sources */,
 				61C802771A801B5F00AAB29D /* AppDelegate.m in Sources */,
 				61C8027A1A801B5F00AAB29D /* RedmineClient.xcdatamodeld in Sources */,
 				61C8027D1A801B5F00AAB29D /* ViewController.m in Sources */,
 				61950E641A8367F60044D06D /* UITimeEntriesInfoVC.m in Sources */,
+				61C806A71A83E2CD00AAB29D /* IssueModel.m in Sources */,
 				61C802A11A802B4600AAB29D /* ServerInfo.m in Sources */,
 				614A56781A83B50900C3E9E8 /* UITimeEnteryCell.m in Sources */,
 				61C802A41A802B5D00AAB29D /* ServersModel.m in Sources */,
@@ -442,6 +500,8 @@
 				61C802B71A814E3700AAB29D /* UILoginVC.m in Sources */,
 				61950E5C1A824F5E0044D06D /* TimeEntries.m in Sources */,
 				61C802741A801B5F00AAB29D /* main.m in Sources */,
+				61C806AE1A840C0100AAB29D /* ProjectsManager.m in Sources */,
+				61C806A41A83E2BC00AAB29D /* ProjectModel.m in Sources */,
 				61C802C01A8168BC00AAB29D /* AppStorage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -567,6 +627,7 @@
 			baseConfigurationReference = 8B755BC75D43BE5C3E060E06 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = RedmineClient/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -580,6 +641,7 @@
 			baseConfigurationReference = 946748745295FD55F0588F68 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = RedmineClient/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

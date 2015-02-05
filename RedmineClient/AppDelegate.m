@@ -20,12 +20,13 @@
 
     if([ServersModel activeServer])
     {
+        [self registerForRemoteNotifications];
+        
         UIViewController*vc = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"appTabBarController"];
         self.window.rootViewController = vc;
         [self.window makeKeyAndVisible];
     }
 
-    [self registerForRemoteNotifications];
     return YES;
 }
 
@@ -52,10 +53,11 @@
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
     
     UILocalNotification* localNotification = [[UILocalNotification alloc] init];
-    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
+    localNotification.fireDate = [ServersModel activeServer].pushDate;
     localNotification.alertBody = @"Нужно проверить время";
     localNotification.timeZone = [NSTimeZone defaultTimeZone];
     localNotification.repeatInterval = kCFCalendarUnitMinute;
+    localNotification.soundName = UILocalNotificationDefaultSoundName;
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 }
 

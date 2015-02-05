@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "ServerInfo.h"
+#import "AppStorage.h"
+#import "Constants.h"
 
 @interface ServersModel : NSObject
 
@@ -18,6 +20,7 @@
 
 @property(nonatomic,readonly)NSArray* serversList;
 @property(nonatomic,readonly)ServerInfo* activeServerInfo;
+@property(nonatomic,readonly)AppStorage*storage;
 
 - (void)loginWithUser:(NSString*)login
              password:(NSString*)password

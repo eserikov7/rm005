@@ -34,16 +34,19 @@
 {
     NSData* data = [NSKeyedArchiver archivedDataWithRootObject:obj];
     [stotege setObject:data forKey:key];
+    [stotege synchronize];
 }
 
 - (void)removeObjectForKey:(NSString *)key
 {
     [stotege removeObjectForKey:key];
+    [stotege synchronize];
 }
 
 - (void)clean
 {
     [stotege removePersistentDomainForName:kDomainName];
+    [stotege synchronize];
 }
 
 

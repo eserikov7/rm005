@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TimeEntry.h"
 
 @interface UITimeEnteryCell : UITableViewCell
+
+@property(nonatomic)IBOutlet UILabel* timeEnteryTitle;
+@property(nonatomic)IBOutlet UILabel* timeValue;
+
+@property(nonatomic)TimeEntry* timeEntry;
 
 @end

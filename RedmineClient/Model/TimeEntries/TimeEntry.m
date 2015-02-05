@@ -16,9 +16,16 @@
    self.hours = [[dict objectForKey:@"hours"] floatValue];
    self.comments = [dict objectForKey:@"comments"];
 
+    self.project = [[ProjectModel alloc] init];
+    [self.project parce:[dict objectForKey:@"project"]];
+    
+    self.issue = [[IssueModel alloc] init];
+    [self.issue parce:[dict objectForKey:@"issue"]];
+    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
    self.spent_on = [dateFormatter dateFromString:[dict objectForKey:@"spent_on"]];
 }
+
 
 @end

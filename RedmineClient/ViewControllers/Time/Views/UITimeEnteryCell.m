@@ -20,4 +20,12 @@
     // Configure the view for the selected state
 }
 
+- (void)setTimeEntry:(TimeEntry *)timeEntry
+{
+    _timeEntry = timeEntry;
+    
+    self.timeEnteryTitle.text = [NSString stringWithFormat:@"%@ (#%@)", timeEntry.project.name, timeEntry.issue.Id];
+    self.timeValue.text = [NSString stringWithFormat:@"%.2f ч.",timeEntry.hours];
+}
+
 @end

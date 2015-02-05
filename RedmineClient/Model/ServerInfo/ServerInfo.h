@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "TimeEntries.h"
+#import "ProjectsManager.h"
 
 @interface ServerInfo : NSObject
 
@@ -19,12 +20,13 @@
 @property(nonatomic,readonly) NSString *firstName;
 @property(nonatomic,readonly) NSString *lastName;
 
+@property(nonatomic) NSDate *pushDate;
 
 @property(nonatomic,readonly) NSString *serverName;
 @property(nonatomic,readonly) NSString *serverDomain;
 
 @property(nonatomic,readonly)TimeEntries * timeEntries;
-
+@property(nonatomic,readonly)ProjectsManager * projectsManager;
 
 - (instancetype)initWithServerName:(NSString*)serverName
                       serverDomain:(NSString*)serverDomain;

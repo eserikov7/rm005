@@ -9,3 +9,14 @@
 "ids_ok" = "Ок";
 
 "login_welcome" = "%@ %@,\nДобро пожаловать!";
+
+"time_ttl" = "Время";
+
+
+"settings_ttl" = "Настройки";
+
+"settings_account_info" = "Аккаунт";
+
+"settings_push_notification" = "PUSH-уведомления";
+
+"settings_exit" = "Выход";

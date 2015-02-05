@@ -54,6 +54,10 @@
     return servers;
 }
 
+- (AppStorage *)storage
+{
+    return appStorage;
+}
 
 - (void)loginWithUser:(NSString*)login
              password:(NSString*)password

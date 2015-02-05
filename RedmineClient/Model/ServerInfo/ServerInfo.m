@@ -10,6 +10,7 @@
 #import <AFNetworking.h>
 #import "Constants.h"
 #import "NetworkingManager.h"
+#import "ServersModel.h"
 
 @implementation ServerInfo
 
@@ -21,6 +22,7 @@
     NSString* firstName;
     NSString* lastName;
     TimeEntries* _timeEntries;
+    ProjectsManager* _projectsManager;
 }
 - (instancetype)initWithServerName:(NSString*)name
                       serverDomain:(NSString*)domain
@@ -64,6 +66,13 @@
     [encoder encodeObject:lastName forKey:@"lastName"];
 }
 
+- (ProjectsManager *)projectsManager
+{
+    if(_projectsManager == nil)
+        _projectsManager = [[ProjectsManager alloc] init];
+    return _projectsManager;
+}
+
 - (TimeEntries *)timeEntries
 {
     if(_timeEntries == nil)
@@ -95,9 +104,65 @@
 {
     return apiKey;
 }
+
 - (NSURL*)url
 {
     return [NSURL URLWithString:[kGlobusServerDomain stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+}
+
+- (NSDate *)pushDate
+{
+    
+    NSDate * pushDate = [[ServersModel instance].storage objectForKey:kPushDate];
+
+    if(pushDate == nil)
+    {
+        
+        NSDateComponents *comps = [[NSCalendar currentCalendar] components:kCFCalendarUnitYear| kCFCalendarUnitMonth|kCFCalendarUnitDay|kCFCalendarUnitHour|kCFCalendarUnitMinute
+                                                                  fromDate:[NSDate date]];
+        
+        [comps setHour:14];
+        [comps setMinute:0];
+
+        pushDate = [[NSCalendar currentCalendar] dateFromComponents:comps];
+        
+        [[ServersModel instance].storage setObject:pushDate forKey:kPushDate];
+    }
+
+    
+
+    NSDateComponents *currComps = [[NSCalendar currentCalendar] components:kCFCalendarUnitYear| kCFCalendarUnitMonth|kCFCalendarUnitDay|kCFCalendarUnitHour|kCFCalendarUnitMinute
+                                                                  fromDate:[NSDate date]];
+    
+    NSDateComponents *pushComps = [[NSCalendar currentCalendar] components:kCFCalendarUnitYear| kCFCalendarUnitMonth|kCFCalendarUnitDay|kCFCalendarUnitHour|kCFCalendarUnitMinute
+                                                                  fromDate:pushDate];
+
+    currComps.minute = pushComps.minute;
+    currComps.hour = pushComps.hour;
+
+    if([[[NSCalendar currentCalendar] dateFromComponents:currComps] compare:[NSDate date]] == NSOrderedAscending)
+    {
+        currComps.day++;
+    }
+
+    return [[NSCalendar currentCalendar] dateFromComponents:currComps];
+    
+}
+
+- (void)setPushDate:(NSDate *)pushDate
+{
+    [[ServersModel instance].storage setObject:pushDate forKey:kPushDate];
+    
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    
+    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+    localNotification.fireDate = [ServersModel activeServer].pushDate;
+    localNotification.alertBody = @"Нужно проверить время";
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    localNotification.repeatInterval = kCFCalendarUnitMinute;
+    localNotification.soundName = UILocalNotificationDefaultSoundName;
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    
 }
 
 - (void)loginWithUser:(NSString*)login
