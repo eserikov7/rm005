@@ -20,10 +20,8 @@
 + (instancetype)instance
 {
     static ServersModel *inst = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
+    if(inst == nil)
         inst = [[self alloc] init];
-    });
     return inst;
 }
 
@@ -38,11 +36,16 @@
     appStorage = [[AppStorage alloc] init];
     _activeServerInfo = [appStorage objectForKey:kActiveAccount];
     if(_activeServerInfo)
-        [_activeServerInfo updateAccountInfoSuccess:^{
-            [appStorage setObject:_activeServerInfo forKey:kActiveAccount];
-        } failure:^(NSError *error) {
-            
-        }];
+    {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            [_activeServerInfo updateAccountInfoSuccess:^{
+                [appStorage setObject:_activeServerInfo forKey:kActiveAccount];
+            } failure:^(NSError *error) {
+                
+            }];
+        });
+    }
+
     return self;
 }
 

@@ -25,7 +25,38 @@
         [self.window makeKeyAndVisible];
     }
 
+    [self registerForRemoteNotifications];
     return YES;
+}
+
+- (void)registerForRemoteNotifications
+{
+    
+    if([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)])
+    {
+        UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound
+                                                                                             categories:nil];
+        
+        [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
+        
+    }
+    else if(([[UIApplication sharedApplication] respondsToSelector:@selector(registerForRemoteNotificationTypes:)]))
+        
+    {
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+         UIRemoteNotificationTypeBadge |
+         UIRemoteNotificationTypeAlert |
+         UIRemoteNotificationTypeSound ];
+    }
+    
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    
+    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
+    localNotification.alertBody = @"Нужно проверить время";
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    localNotification.repeatInterval = kCFCalendarUnitMinute;
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

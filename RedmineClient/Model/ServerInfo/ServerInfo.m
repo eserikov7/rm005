@@ -9,7 +9,7 @@
 #import "ServerInfo.h"
 #import <AFNetworking.h>
 #import "Constants.h"
-
+#import "NetworkingManager.h"
 
 @implementation ServerInfo
 
@@ -20,6 +20,7 @@
     NSString* uid;
     NSString* firstName;
     NSString* lastName;
+    TimeEntries* _timeEntries;
 }
 - (instancetype)initWithServerName:(NSString*)name
                       serverDomain:(NSString*)domain
@@ -63,6 +64,12 @@
     [encoder encodeObject:lastName forKey:@"lastName"];
 }
 
+- (TimeEntries *)timeEntries
+{
+    if(_timeEntries == nil)
+        _timeEntries = [[TimeEntries alloc] init];
+    return _timeEntries;
+}
 
 - (NSString *)firstName
 {
@@ -79,11 +86,18 @@
     return accLogin;
 }
 
+- (NSString*)password
+{
+    return accPassword;
+}
+
+- (NSString*)apiKey
+{
+    return apiKey;
+}
 - (NSURL*)url
 {
-    if(apiKey.length>0 )
-        return [self serverURLBy:_serverDomain apiKey:apiKey];
-    return nil;
+    return [NSURL URLWithString:[kGlobusServerDomain stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 }
 
 - (void)loginWithUser:(NSString*)login
@@ -92,51 +106,52 @@
               failure:(void (^)( NSError *error))failure
 {
     
-    NSURL*url = [[self serverURLBy:_serverDomain login:login password:password] URLByAppendingPathComponent:kUserInfo];
     
-    [[AFHTTPRequestOperationManager manager] GET:[url absoluteString]
-                                      parameters:nil
-                                         success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                             
-                                             if([responseObject objectForKey:@"user"])
-                                             {
-                                                 [self parce:[responseObject objectForKey:@"user"]];
-                                             }
-                                             accPassword = password;
-                                             if(success)
-                                                 success();
-                                             
-                                         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                             accLogin = login;
-                                             if(failure)
-                                                 failure(error);
-                                         }];
+    NSURL*url = [self serverURLBy:kGlobusServerDomain login:login password:password];
+    url = [ url URLByAppendingPathComponent:kUserInfo];
+    
+    accLogin = login;
+    accPassword = password;
+    [[NetworkingManager manager] GET:[url absoluteString]
+                          parameters:nil
+                             success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                 
+                                 if([responseObject objectForKey:@"user"])
+                                 {
+                                     [self parce:[responseObject objectForKey:@"user"]];
+                                 }
+                                 accPassword = password;
+                                 if(success)
+                                     success();
+                                 
+                             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                 accLogin = login;
+                                 if(failure)
+                                     failure(error);
+                             }];
 }
 
 - (void)updateAccountInfoSuccess:(void (^)())success
                          failure:(void (^)( NSError *error))failure
 {
 
-    NSURL*url = [[self serverURLBy:_serverDomain login:accLogin password:accPassword] URLByAppendingPathComponent:kUserInfo];
-    
-    AFHTTPRequestOperationManager* manager = [AFHTTPRequestOperationManager manager];
-    
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
-    [manager GET:[url absoluteString]
-      parameters:nil
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             
-             if([responseObject objectForKey:@"user"])
-             {
-                 [self parce:[responseObject objectForKey:@"user"]];
-             }
-             if(success)
-                 success();
-             
-         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-             if(failure)
-                 failure(error);
-         }];
+    NSURL*url = [self url];
+    url = [ url URLByAppendingPathComponent:kUserInfo];
+    [[NetworkingManager manager] GET:[url absoluteString]
+                          parameters:nil
+                             success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                 
+                                 if([responseObject objectForKey:@"user"])
+                                 {
+                                     [self parce:[responseObject objectForKey:@"user"]];
+                                 }
+                                 if(success)
+                                     success();
+                                 
+                             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                 if(failure)
+                                     failure(error);
+                             }];
 }
 
 - (void)parce:(NSDictionary*)dict
@@ -155,11 +170,14 @@
                 login:(NSString*)login
              password:(NSString*)password
 {
-    NSURL*url = [NSURL URLWithString:domain];
-    url.user = login;
-    url.password = password;
     
-    return [NSURL URLWithString:[[NSString stringWithFormat:kServerUrl,[NSString stringWithFormat:@"%@:%@",login,password],domain] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSURLComponents *components = [[NSURLComponents alloc] initWithString:domain];
+    components.user = login;
+    components.password = password;
+    
+    NSURL*url = [components URL];
+    
+    return url;
 }
 
 - (NSURL*)serverURLBy:(NSString*)domain

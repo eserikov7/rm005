@@ -18,7 +18,7 @@
 #define kGlobusServerDomain @"http://redmine.globus-ltd.com:8098/redmine"
 
 #define kUserInfo @"/users/current.json"
-#define TimeEntries @"time_entries.json"
+#define kTimeEntries @"time_entries.json"
 
 #define kColorLoginBackground     [UIColor colorWithRed:120.0/255.0 green:195.0/255.0 blue:222.0/255.0 alpha:1.0]
 

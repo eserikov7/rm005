@@ -7,18 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TimeEntries.h"
 
 @interface ServerInfo : NSObject
 
 @property(nonatomic,readonly) NSURL *url;
 
 @property(nonatomic,readonly) NSString *login;
+@property(nonatomic,readonly) NSString *password;
+@property(nonatomic,readonly) NSString *apiKey;
 @property(nonatomic,readonly) NSString *firstName;
 @property(nonatomic,readonly) NSString *lastName;
 
 
 @property(nonatomic,readonly) NSString *serverName;
 @property(nonatomic,readonly) NSString *serverDomain;
+
+@property(nonatomic,readonly)TimeEntries * timeEntries;
 
 
 - (instancetype)initWithServerName:(NSString*)serverName

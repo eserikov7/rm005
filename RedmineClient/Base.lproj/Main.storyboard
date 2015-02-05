@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jVL-cs-0z3">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
@@ -114,10 +115,10 @@
             </objects>
             <point key="canvasLocation" x="854.5" y="-683.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Time Entries InfoVC-->
         <scene sceneID="kFd-0c-al0">
             <objects>
-                <viewController id="Mz2-rI-hPM" sceneMemberID="viewController">
+                <viewController id="Mz2-rI-hPM" customClass="UITimeEntriesInfoVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ruy-Eu-apc"/>
                         <viewControllerLayoutGuide type="bottom" id="qfs-zv-uTu"/>
@@ -130,7 +131,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="129" id="JlJ-Rt-1lY">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UIFullTimeCell" rowHeight="129" id="JlJ-Rt-1lY" customClass="UIFullTimeCell">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JlJ-Rt-1lY" id="cEh-a9-scG">
@@ -156,8 +157,15 @@
                                                 <constraint firstAttribute="centerX" secondItem="PFQ-3T-HmT" secondAttribute="centerX" id="wrx-1u-hfd"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="timeValue" destination="fxL-HQ-Ax0" id="Gec-Ud-s9e"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Mz2-rI-hPM" id="MSA-ma-2mp"/>
+                                    <outlet property="delegate" destination="Mz2-rI-hPM" id="LLa-gf-4u3"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -169,6 +177,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yAi-qy-1sO"/>
+                    <connections>
+                        <outlet property="table" destination="jzE-zi-kYa" id="QQu-9P-edx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oqE-7V-U7n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

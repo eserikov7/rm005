@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		614A56741A83B11400C3E9E8 /* TimeEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 614A56731A83B11400C3E9E8 /* TimeEntry.m */; };
+		614A56781A83B50900C3E9E8 /* UITimeEnteryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 614A56771A83B50900C3E9E8 /* UITimeEnteryCell.m */; };
+		614A567B1A83B52300C3E9E8 /* UIFullTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 614A567A1A83B52300C3E9E8 /* UIFullTimeCell.m */; };
 		61950E5C1A824F5E0044D06D /* TimeEntries.m in Sources */ = {isa = PBXBuildFile; fileRef = 61950E5B1A824F5E0044D06D /* TimeEntries.m */; };
+		61950E641A8367F60044D06D /* UITimeEntriesInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 61950E631A8367F60044D06D /* UITimeEntriesInfoVC.m */; };
 		61C802741A801B5F00AAB29D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C802731A801B5F00AAB29D /* main.m */; };
 		61C802771A801B5F00AAB29D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C802761A801B5F00AAB29D /* AppDelegate.m */; };
 		61C8027A1A801B5F00AAB29D /* RedmineClient.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 61C802781A801B5F00AAB29D /* RedmineClient.xcdatamodeld */; };
@@ -38,8 +42,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		614A56721A83B11400C3E9E8 /* TimeEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeEntry.h; sourceTree = "<group>"; };
+		614A56731A83B11400C3E9E8 /* TimeEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeEntry.m; sourceTree = "<group>"; };
+		614A56761A83B50900C3E9E8 /* UITimeEnteryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITimeEnteryCell.h; sourceTree = "<group>"; };
+		614A56771A83B50900C3E9E8 /* UITimeEnteryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITimeEnteryCell.m; sourceTree = "<group>"; };
+		614A56791A83B52300C3E9E8 /* UIFullTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFullTimeCell.h; sourceTree = "<group>"; };
+		614A567A1A83B52300C3E9E8 /* UIFullTimeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFullTimeCell.m; sourceTree = "<group>"; };
 		61950E5A1A824F5E0044D06D /* TimeEntries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeEntries.h; sourceTree = "<group>"; };
 		61950E5B1A824F5E0044D06D /* TimeEntries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeEntries.m; sourceTree = "<group>"; };
+		61950E621A8367F60044D06D /* UITimeEntriesInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITimeEntriesInfoVC.h; sourceTree = "<group>"; };
+		61950E631A8367F60044D06D /* UITimeEntriesInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITimeEntriesInfoVC.m; sourceTree = "<group>"; };
 		61C8026E1A801B5F00AAB29D /* RedmineClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedmineClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61C802721A801B5F00AAB29D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61C802731A801B5F00AAB29D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -102,13 +114,36 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		614A56751A83B4EB00C3E9E8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				614A56761A83B50900C3E9E8 /* UITimeEnteryCell.h */,
+				614A56771A83B50900C3E9E8 /* UITimeEnteryCell.m */,
+				614A56791A83B52300C3E9E8 /* UIFullTimeCell.h */,
+				614A567A1A83B52300C3E9E8 /* UIFullTimeCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		61950E591A824F520044D06D /* TimeEntries */ = {
 			isa = PBXGroup;
 			children = (
 				61950E5A1A824F5E0044D06D /* TimeEntries.h */,
 				61950E5B1A824F5E0044D06D /* TimeEntries.m */,
+				614A56721A83B11400C3E9E8 /* TimeEntry.h */,
+				614A56731A83B11400C3E9E8 /* TimeEntry.m */,
 			);
 			path = TimeEntries;
+			sourceTree = "<group>";
+		};
+		61950E5D1A8367690044D06D /* Time */ = {
+			isa = PBXGroup;
+			children = (
+				614A56751A83B4EB00C3E9E8 /* Views */,
+				61950E621A8367F60044D06D /* UITimeEntriesInfoVC.h */,
+				61950E631A8367F60044D06D /* UITimeEntriesInfoVC.m */,
+			);
+			path = Time;
 			sourceTree = "<group>";
 		};
 		61C802651A801B5F00AAB29D = {
@@ -194,6 +229,7 @@
 		61C8029B1A80279900AAB29D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				61950E5D1A8367690044D06D /* Time */,
 				61C802B41A814E1F00AAB29D /* Login */,
 			);
 			path = ViewControllers;
@@ -397,8 +433,12 @@
 				61C802771A801B5F00AAB29D /* AppDelegate.m in Sources */,
 				61C8027A1A801B5F00AAB29D /* RedmineClient.xcdatamodeld in Sources */,
 				61C8027D1A801B5F00AAB29D /* ViewController.m in Sources */,
+				61950E641A8367F60044D06D /* UITimeEntriesInfoVC.m in Sources */,
 				61C802A11A802B4600AAB29D /* ServerInfo.m in Sources */,
+				614A56781A83B50900C3E9E8 /* UITimeEnteryCell.m in Sources */,
 				61C802A41A802B5D00AAB29D /* ServersModel.m in Sources */,
+				614A56741A83B11400C3E9E8 /* TimeEntry.m in Sources */,
+				614A567B1A83B52300C3E9E8 /* UIFullTimeCell.m in Sources */,
 				61C802B71A814E3700AAB29D /* UILoginVC.m in Sources */,
 				61950E5C1A824F5E0044D06D /* TimeEntries.m in Sources */,
 				61C802741A801B5F00AAB29D /* main.m in Sources */,
@@ -478,7 +518,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -514,7 +554,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -528,6 +568,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RedmineClient/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -540,6 +581,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RedmineClient/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
