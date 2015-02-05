@@ -8,12 +8,13 @@
 
 #import "NetworkingManager.h"
 #import "ErrorHandler.h"
-
+#import "ServersModel.h"
 @implementation NetworkingManager
 
 +(NetworkingManager*)manager
 {
     NetworkingManager* netManager = [super manager];
+    [netManager.requestSerializer setAuthorizationHeaderFieldWithUsername:[ServersModel activeServer].login password:[ServersModel activeServer].password];
     return netManager;
 }
 
