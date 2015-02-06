@@ -25,6 +25,7 @@
 
 
 #define kPushDate @"PushDate"
+#define kPushAtHolidays @"kPushAtHolidays"
 
 
 #define kColorLoginBackground     [UIColor colorWithRed:120.0/255.0 green:195.0/255.0 blue:222.0/255.0 alpha:1.0]

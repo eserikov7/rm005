@@ -30,6 +30,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if(section == 1)
+        return 2;
     return 1;
 }
 
@@ -71,46 +73,67 @@
             break;
         case 1:
         {
-            UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"pushTime"];
-            if(cell == nil)
-            {
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"pushTime"];
-            }
+            if (indexPath.row == 0) {
             
-            cell.textLabel.text = NSLocalizedString(@"settings_push_notification", @"");
             
-            UITextField* pushTime = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 70, 30)];
-            pushTime.textAlignment = NSTextAlignmentRight;
-            
-            UIDatePicker* picker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 100)];
-            [picker setDatePickerMode:UIDatePickerModeTime];
-            pushTime.inputView = picker;
-            
-            [picker bk_addEventHandler:^(id sender) {
-
-                [ServersModel activeServer].pushDate = picker.date;
-
-                NSCalendar *calendar = [NSCalendar currentCalendar];
-                NSDateComponents *components = [calendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:picker.date];
+                UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"pushTime"];
+                if(cell == nil)
+                {
+                    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"pushTime"];
+                }
+                
+                cell.textLabel.text = NSLocalizedString(@"settings_push_notification", @"");
+                
+                UITextField* pushTime = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 70, 30)];
+                pushTime.textAlignment = NSTextAlignmentRight;
+                
+                UIDatePicker* picker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 100)];
+                [picker setDatePickerMode:UIDatePickerModeTime];
+                pushTime.inputView = picker;
+                
+                [picker bk_addEventHandler:^(id sender) {
+                    
+                    [ServersModel activeServer].pushDate = picker.date;
+                    
+                    NSCalendar *calendar = [NSCalendar currentCalendar];
+                    NSDateComponents *components = [calendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:picker.date];
+                    NSInteger hour = [components hour];
+                    NSInteger minute = [components minute];
+                    
+                    pushTime.text = [NSString stringWithFormat:@"%d:%02d", hour, minute];
+                    
+                } forControlEvents:UIControlEventValueChanged];
+                
+                
+                NSDateComponents *components = [[NSCalendar currentCalendar] components:(NSHourCalendarUnit | NSMinuteCalendarUnit)
+                                                                               fromDate:[ServersModel activeServer].pushDate];
                 NSInteger hour = [components hour];
                 NSInteger minute = [components minute];
                 
+                picker.date = [ServersModel activeServer].pushDate;
+                
                 pushTime.text = [NSString stringWithFormat:@"%d:%02d", hour, minute];
-
-            } forControlEvents:UIControlEventValueChanged];
-            
-
-            NSDateComponents *components = [[NSCalendar currentCalendar] components:(NSHourCalendarUnit | NSMinuteCalendarUnit)
-                                                                           fromDate:[ServersModel activeServer].pushDate];
-            NSInteger hour = [components hour];
-            NSInteger minute = [components minute];
-            
-            picker.date = [ServersModel activeServer].pushDate;
-            
-            pushTime.text = [NSString stringWithFormat:@"%d:%02d", hour, minute];
-            cell.accessoryView = pushTime;
-            
-            return cell;
+                cell.accessoryView = pushTime;
+                
+                return cell;
+            }
+            else
+            {
+                UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"pushTimeAtHolidays"];
+                if(cell == nil)
+                {
+                    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"pushTimeAtHolidays"];
+                }
+                
+                cell.textLabel.text = NSLocalizedString(@"settings_push_at_holidays", @"");
+                
+                if([ServersModel activeServer].pushAtHolidays)
+                    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+                else
+                    cell.accessoryType = UITableViewCellAccessoryNone;
+                
+                return cell;
+            }
         }
             break;
         case 2:
@@ -144,8 +167,19 @@
     switch (indexPath.section) {
         case 1:
         {
-            UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
-            [cell.accessoryView becomeFirstResponder];
+            if(indexPath.row == 0)
+            {
+                UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
+                if([cell.accessoryView isFirstResponder])
+                    [cell.accessoryView resignFirstResponder];
+                else
+                    [cell.accessoryView becomeFirstResponder];
+            }
+            else
+            {
+                [ServersModel activeServer].pushAtHolidays = ![ServersModel activeServer].pushAtHolidays;
+                [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            }
         }
             break;
             

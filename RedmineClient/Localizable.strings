@@ -18,5 +18,5 @@
 "settings_account_info" = "Аккаунт";
 
 "settings_push_notification" = "PUSH-уведомления";
-
+"settings_push_at_holidays" = "Напоминать в выходные";
 "settings_exit" = "Выход";

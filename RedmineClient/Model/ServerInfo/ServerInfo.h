@@ -21,6 +21,7 @@
 @property(nonatomic,readonly) NSString *lastName;
 
 @property(nonatomic) NSDate *pushDate;
+@property(nonatomic) BOOL pushAtHolidays;
 
 @property(nonatomic,readonly) NSString *serverName;
 @property(nonatomic,readonly) NSString *serverDomain;

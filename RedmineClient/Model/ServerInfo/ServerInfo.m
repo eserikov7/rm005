@@ -110,16 +110,26 @@
     return [NSURL URLWithString:[kGlobusServerDomain stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 }
 
+- (BOOL)pushAtHolidays
+{
+    return [[[ServersModel instance].storage objectForKey:kPushAtHolidays] boolValue];
+}
+
+- (void)setPushAtHolidays:(BOOL)pushAtHolidays
+{
+    [[ServersModel instance].storage setObject:@(pushAtHolidays) forKey:kPushAtHolidays];
+}
+
 - (NSDate *)pushDate
 {
     
     NSDate * pushDate = [[ServersModel instance].storage objectForKey:kPushDate];
-
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     if(pushDate == nil)
     {
         
-        NSDateComponents *comps = [[NSCalendar currentCalendar] components:kCFCalendarUnitYear| kCFCalendarUnitMonth|kCFCalendarUnitDay|kCFCalendarUnitHour|kCFCalendarUnitMinute
-                                                                  fromDate:[NSDate date]];
+        NSDateComponents *comps = [gregorian components:kCFCalendarUnitYear| kCFCalendarUnitMonth|kCFCalendarUnitDay|kCFCalendarUnitHour|kCFCalendarUnitMinute
+                                               fromDate:[NSDate date]];
         
         [comps setHour:14];
         [comps setMinute:0];
@@ -131,18 +141,19 @@
 
     
 
-    NSDateComponents *currComps = [[NSCalendar currentCalendar] components:kCFCalendarUnitYear| kCFCalendarUnitMonth|kCFCalendarUnitDay|kCFCalendarUnitHour|kCFCalendarUnitMinute
+    NSDateComponents *currComps = [gregorian components:kCFCalendarUnitYear| kCFCalendarUnitMonth|kCFCalendarUnitDay|kCFCalendarUnitHour|kCFCalendarUnitMinute|NSWeekdayCalendarUnit
                                                                   fromDate:[NSDate date]];
     
-    NSDateComponents *pushComps = [[NSCalendar currentCalendar] components:kCFCalendarUnitYear| kCFCalendarUnitMonth|kCFCalendarUnitDay|kCFCalendarUnitHour|kCFCalendarUnitMinute
+    NSDateComponents *pushComps = [gregorian components:kCFCalendarUnitYear| kCFCalendarUnitMonth|kCFCalendarUnitDay|kCFCalendarUnitHour|kCFCalendarUnitMinute|NSWeekdayCalendarUnit
                                                                   fromDate:pushDate];
 
     currComps.minute = pushComps.minute;
     currComps.hour = pushComps.hour;
 
-    if([[[NSCalendar currentCalendar] dateFromComponents:currComps] compare:[NSDate date]] == NSOrderedAscending)
-    {
+    while (((self.pushAtHolidays == NO) && ([currComps weekday] == 1||[currComps weekday]==7||[currComps weekday]==8 ))||
+           [[[NSCalendar currentCalendar] dateFromComponents:currComps] compare:[NSDate date]] == NSOrderedAscending) {
         currComps.day++;
+        currComps.weekday++;
     }
 
     return [[NSCalendar currentCalendar] dateFromComponents:currComps];
