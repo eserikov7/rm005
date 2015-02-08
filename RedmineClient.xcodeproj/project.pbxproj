@@ -34,6 +34,13 @@
 		61C806AE1A840C0100AAB29D /* ProjectsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C806AD1A840C0100AAB29D /* ProjectsManager.m */; };
 		61C806B51A8419C700AAB29D /* UIProjectsListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C806B41A8419C700AAB29D /* UIProjectsListVC.m */; };
 		61C806B81A841FD700AAB29D /* UIIssuesListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C806B71A841FD700AAB29D /* UIIssuesListVC.m */; };
+		61C806BC1A86A82500AAB29D /* PushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C806BB1A86A82500AAB29D /* PushManager.m */; };
+		61C806BF1A86A9D000AAB29D /* PushInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C806BE1A86A9D000AAB29D /* PushInfo.m */; };
+		61C806C51A87BEC400AAB29D /* TrackerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C806C41A87BEC400AAB29D /* TrackerModel.m */; };
+		61C806C81A87BED900AAB29D /* StatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C806C71A87BED900AAB29D /* StatusModel.m */; };
+		61C806CB1A87BEEC00AAB29D /* PriorityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C806CA1A87BEEC00AAB29D /* PriorityModel.m */; };
+		61C806CE1A87BF0200AAB29D /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C806CD1A87BF0200AAB29D /* UserModel.m */; };
+		61C806D11A87D53200AAB29D /* TimeEntriesAtDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C806D01A87D53200AAB29D /* TimeEntriesAtDate.m */; };
 		A58F309CAE9A323B25026335 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1B65950B408879EA6434C64 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +107,20 @@
 		61C806B41A8419C700AAB29D /* UIProjectsListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIProjectsListVC.m; sourceTree = "<group>"; };
 		61C806B61A841FD700AAB29D /* UIIssuesListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIIssuesListVC.h; sourceTree = "<group>"; };
 		61C806B71A841FD700AAB29D /* UIIssuesListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIIssuesListVC.m; sourceTree = "<group>"; };
+		61C806BA1A86A82500AAB29D /* PushManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushManager.h; sourceTree = "<group>"; };
+		61C806BB1A86A82500AAB29D /* PushManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushManager.m; sourceTree = "<group>"; };
+		61C806BD1A86A9D000AAB29D /* PushInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushInfo.h; sourceTree = "<group>"; };
+		61C806BE1A86A9D000AAB29D /* PushInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushInfo.m; sourceTree = "<group>"; };
+		61C806C31A87BEC400AAB29D /* TrackerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackerModel.h; sourceTree = "<group>"; };
+		61C806C41A87BEC400AAB29D /* TrackerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackerModel.m; sourceTree = "<group>"; };
+		61C806C61A87BED900AAB29D /* StatusModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusModel.h; sourceTree = "<group>"; };
+		61C806C71A87BED900AAB29D /* StatusModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusModel.m; sourceTree = "<group>"; };
+		61C806C91A87BEEC00AAB29D /* PriorityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriorityModel.h; sourceTree = "<group>"; };
+		61C806CA1A87BEEC00AAB29D /* PriorityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriorityModel.m; sourceTree = "<group>"; };
+		61C806CC1A87BF0200AAB29D /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		61C806CD1A87BF0200AAB29D /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
+		61C806CF1A87D53200AAB29D /* TimeEntriesAtDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeEntriesAtDate.h; sourceTree = "<group>"; };
+		61C806D01A87D53200AAB29D /* TimeEntriesAtDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeEntriesAtDate.m; sourceTree = "<group>"; };
 		8B755BC75D43BE5C3E060E06 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		946748745295FD55F0588F68 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C1B65950B408879EA6434C64 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,6 +160,8 @@
 				614A56771A83B50900C3E9E8 /* UITimeEnteryCell.m */,
 				614A56791A83B52300C3E9E8 /* UIFullTimeCell.h */,
 				614A567A1A83B52300C3E9E8 /* UIFullTimeCell.m */,
+				61C806CF1A87D53200AAB29D /* TimeEntriesAtDate.h */,
+				61C806D01A87D53200AAB29D /* TimeEntriesAtDate.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -233,6 +256,7 @@
 		61C8029A1A80279900AAB29D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				61C806B91A86A80900AAB29D /* PushManager */,
 				61C806A11A83E2A200AAB29D /* Issues */,
 				61950E591A824F520044D06D /* TimeEntries */,
 				61C802B31A80309800AAB29D /* Constants.h */,
@@ -312,6 +336,14 @@
 				61C806A61A83E2CD00AAB29D /* IssueModel.m */,
 				61C806AC1A840C0100AAB29D /* ProjectsManager.h */,
 				61C806AD1A840C0100AAB29D /* ProjectsManager.m */,
+				61C806C31A87BEC400AAB29D /* TrackerModel.h */,
+				61C806C41A87BEC400AAB29D /* TrackerModel.m */,
+				61C806C61A87BED900AAB29D /* StatusModel.h */,
+				61C806C71A87BED900AAB29D /* StatusModel.m */,
+				61C806C91A87BEEC00AAB29D /* PriorityModel.h */,
+				61C806CA1A87BEEC00AAB29D /* PriorityModel.m */,
+				61C806CC1A87BF0200AAB29D /* UserModel.h */,
+				61C806CD1A87BF0200AAB29D /* UserModel.m */,
 			);
 			path = Issues;
 			sourceTree = "<group>";
@@ -335,6 +367,18 @@
 			);
 			path = Issues;
 			sourceTree = "<group>";
+		};
+		61C806B91A86A80900AAB29D /* PushManager */ = {
+			isa = PBXGroup;
+			children = (
+				61C806BA1A86A82500AAB29D /* PushManager.h */,
+				61C806BB1A86A82500AAB29D /* PushManager.m */,
+				61C806BD1A86A9D000AAB29D /* PushInfo.h */,
+				61C806BE1A86A9D000AAB29D /* PushInfo.m */,
+			);
+			name = PushManager;
+			path = RedmineClient/ViewControllers/PushManager;
+			sourceTree = SOURCE_ROOT;
 		};
 		FFFD911E12F6EDA85F0BA2B0 /* Pods */ = {
 			isa = PBXGroup;
@@ -487,20 +531,27 @@
 				61C806B81A841FD700AAB29D /* UIIssuesListVC.m in Sources */,
 				61C806AB1A83EA6A00AAB29D /* UISettingsVC.m in Sources */,
 				61C802AF1A802ED600AAB29D /* ErrorHandler.m in Sources */,
+				61C806CB1A87BEEC00AAB29D /* PriorityModel.m in Sources */,
 				61C802B01A802ED600AAB29D /* NetworkingManager.m in Sources */,
 				61C802771A801B5F00AAB29D /* AppDelegate.m in Sources */,
+				61C806C81A87BED900AAB29D /* StatusModel.m in Sources */,
 				61C8027A1A801B5F00AAB29D /* RedmineClient.xcdatamodeld in Sources */,
 				61C8027D1A801B5F00AAB29D /* ViewController.m in Sources */,
+				61C806BF1A86A9D000AAB29D /* PushInfo.m in Sources */,
 				61950E641A8367F60044D06D /* UITimeEntriesInfoVC.m in Sources */,
 				61C806A71A83E2CD00AAB29D /* IssueModel.m in Sources */,
+				61C806CE1A87BF0200AAB29D /* UserModel.m in Sources */,
 				61C802A11A802B4600AAB29D /* ServerInfo.m in Sources */,
+				61C806BC1A86A82500AAB29D /* PushManager.m in Sources */,
 				614A56781A83B50900C3E9E8 /* UITimeEnteryCell.m in Sources */,
 				61C802A41A802B5D00AAB29D /* ServersModel.m in Sources */,
 				614A56741A83B11400C3E9E8 /* TimeEntry.m in Sources */,
 				614A567B1A83B52300C3E9E8 /* UIFullTimeCell.m in Sources */,
+				61C806D11A87D53200AAB29D /* TimeEntriesAtDate.m in Sources */,
 				61C802B71A814E3700AAB29D /* UILoginVC.m in Sources */,
 				61950E5C1A824F5E0044D06D /* TimeEntries.m in Sources */,
 				61C802741A801B5F00AAB29D /* main.m in Sources */,
+				61C806C51A87BEC400AAB29D /* TrackerModel.m in Sources */,
 				61C806AE1A840C0100AAB29D /* ProjectsManager.m in Sources */,
 				61C806A41A83E2BC00AAB29D /* ProjectModel.m in Sources */,
 				61C802C01A8168BC00AAB29D /* AppStorage.m in Sources */,

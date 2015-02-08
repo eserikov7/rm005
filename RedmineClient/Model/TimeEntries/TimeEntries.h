@@ -10,7 +10,6 @@
 
 @interface TimeEntries : NSObject
 
-@property(nonatomic,readonly) float todaySpentTime;
 @property(nonatomic,readonly) NSArray* items;
 
 - (void)loadSpentTimeSuccess:(void (^)())success

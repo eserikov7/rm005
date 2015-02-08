@@ -15,7 +15,9 @@
 
 @implementation ProjectsManager
 
-- (void)loadProjectsSuccess:(void (^)())success
+- (void)loadProjectsOffset:(NSInteger)offset
+                     limit:(NSInteger)limit
+                   success:(void (^)())success
                     failure:(void (^)( NSError *error))failure
 {
     NSURL* url = [[ServersModel activeServer].url URLByAppendingPathComponent:kProjectsList];
@@ -23,7 +25,7 @@
     
     NetworkingManager* manager = [NetworkingManager manager];
     
-    [manager GET:[[url absoluteString] stringByAppendingString:@"?limit=100"]
+    [manager GET:[NSString stringWithFormat:[[url absoluteString] stringByAppendingString:@"?limit=%ld&offset=%ld"],limit,offset]
       parameters:nil
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              
@@ -42,21 +44,29 @@
     
 }
 
+
 - (void)parce:(NSDictionary*)dict
 {
     if ([dict objectForKey:@"projects"]) {
         
-        NSMutableArray* items = [NSMutableArray array];
+        _projectsCount = [[dict objectForKey:@"total_count"] integerValue];
+        
+        NSMutableArray* resp = [[NSMutableArray alloc] init];
         for(NSDictionary*itemDict in [dict objectForKey:@"projects"])
         {
             ProjectModel * entry = [[ProjectModel alloc] init];
             [entry parce:itemDict];
-            [items addObject:entry];
+            [resp addObject:entry];
         }
-        _projects = items;
+        
+        for(ProjectModel*item in _projects)
+        {
+            if(![resp containsObject:item])
+                [resp addObject:item];
+        }
+        _projects = resp;
+
     }
-    
-    
 }
 
 

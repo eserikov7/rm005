@@ -22,11 +22,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [[ServersModel activeServer].projectsManager loadProjectsSuccess:^{
-        [table reloadData];
-    } failure:^(NSError *error) {
-        
-    }];
+    [[ServersModel activeServer].projectsManager loadProjectsOffset:0
+                                                              limit:25
+                                                            success:^{
+                                                                [table reloadData];
+                                                            } failure:^(NSError *error) {
+                                                                
+                                                            }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -59,6 +61,25 @@
     UIIssuesListVC*vc = [self.storyboard instantiateViewControllerWithIdentifier:@"UIIssuesListVC"];
     vc.project = [[ServersModel activeServer].projectsManager.projects objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if( scrollView.contentSize.height - scrollView.contentOffset.y<table.frame.size.height &&
+       [ServersModel activeServer].projectsManager.projects.count>0 &&
+       [ServersModel activeServer].projectsManager.projects.count<[ServersModel activeServer].projectsManager.projectsCount )
+    {
+        [[ServersModel activeServer].projectsManager loadProjectsOffset:[ServersModel activeServer].projectsManager.projects.count
+                                                                  limit:25
+                                                                success:^{
+                                                                    [table reloadData];
+                                                                } failure:^(NSError *error) {
+                                                                    
+                                                                }];
+        
+    }
+    
+    
 }
 
 

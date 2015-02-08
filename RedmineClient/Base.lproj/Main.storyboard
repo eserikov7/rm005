@@ -211,30 +211,22 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UIFullTimeCell" rowHeight="120" id="JlJ-Rt-1lY" customClass="UIFullTimeCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UIFullTimeCell" rowHeight="90" id="JlJ-Rt-1lY" customClass="UIFullTimeCell">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JlJ-Rt-1lY" id="cEh-a9-scG">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сегодня залогированно:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFQ-3T-HmT">
-                                                    <rect key="frame" x="92" y="20" width="191" height="21"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="21 час 40 мин" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxL-HQ-Ax0">
-                                                    <rect key="frame" x="44" y="52" width="288" height="54"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21 час 40 мин" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxL-HQ-Ax0">
+                                                    <rect key="frame" x="44" y="18" width="288" height="54"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="47"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="PFQ-3T-HmT" firstAttribute="top" secondItem="cEh-a9-scG" secondAttribute="top" constant="20" id="FP4-XE-DYc"/>
-                                                <constraint firstAttribute="centerY" secondItem="fxL-HQ-Ax0" secondAttribute="centerY" constant="-15" id="QbJ-Mk-N7M"/>
+                                                <constraint firstAttribute="centerY" secondItem="fxL-HQ-Ax0" secondAttribute="centerY" id="QbJ-Mk-N7M"/>
                                                 <constraint firstAttribute="centerX" secondItem="fxL-HQ-Ax0" secondAttribute="centerX" id="aWM-7b-AM6"/>
-                                                <constraint firstAttribute="centerX" secondItem="PFQ-3T-HmT" secondAttribute="centerX" id="wrx-1u-hfd"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

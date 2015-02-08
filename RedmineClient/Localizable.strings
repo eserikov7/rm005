@@ -7,10 +7,20 @@
 */
 
 "ids_ok" = "Ок";
+"ids_cancel" = "Отмена";
 
 "login_welcome" = "%@ %@,\nДобро пожаловать!";
 
 "time_ttl" = "Время";
+"time_today" = "Сегодня";
+"time_yesterday" = "Вчера";
+"time_days_ago_34" = "дня назад";
+"time_days_ago_56" = "дней назад";
+
+"push_notification_message" = "Нужно проверить время";
+
+
+"issues_ailible_actions" = "Доступно:";
 
 
 "settings_ttl" = "Настройки";

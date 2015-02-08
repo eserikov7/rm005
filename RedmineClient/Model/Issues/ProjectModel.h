@@ -17,10 +17,14 @@
 @property(nonatomic) int status;
 
 @property(nonatomic,readonly)NSArray* childProjects;
+
+@property(nonatomic,readonly)NSInteger issuesCount;
 @property(nonatomic,readonly)NSArray* issues;
 
-- (void)loadIssuesSuccess:(void (^)())success
-                  failure:(void (^)( NSError *error))failure;
+- (void)loadIssuesOffset:(NSInteger)offset
+                   limit:(NSInteger)limit
+                 success:(void (^)())success
+                 failure:(void (^)( NSError *error))failure;
 
 - (void)parce:(NSDictionary*)dict;
 

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ServersModel.h"
+#import "PushManager.h"
 
 @interface AppDelegate ()
 
@@ -20,12 +21,12 @@
 
     if([ServersModel activeServer])
     {
-        [self registerForRemoteNotifications];
-        
         UIViewController*vc = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"appTabBarController"];
         self.window.rootViewController = vc;
         [self.window makeKeyAndVisible];
     }
+    
+    [self registerForRemoteNotifications];
 
     return YES;
 }
@@ -50,15 +51,11 @@
          UIRemoteNotificationTypeSound ];
     }
     
-    [[UIApplication sharedApplication] cancelAllLocalNotifications];
     
-    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
-    localNotification.fireDate = [ServersModel activeServer].pushDate;
-    localNotification.alertBody = @"Нужно проверить время";
-    localNotification.timeZone = [NSTimeZone defaultTimeZone];
-    localNotification.repeatInterval = kCFCalendarUnitMinute;
-    localNotification.soundName = UILocalNotificationDefaultSoundName;
-    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    if([ServersModel activeServer])
+    {
+        [[PushManager instance] addPushAtTime:[ServersModel activeServer].pushDate forUser:[ServersModel activeServer].login];
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -74,7 +71,7 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     if([ServersModel activeServer])
     {
-        [self registerForRemoteNotifications];
+        [[PushManager instance] addPushAtTime:[ServersModel activeServer].pushDate forUser:[ServersModel activeServer].login];
     }
 }
 

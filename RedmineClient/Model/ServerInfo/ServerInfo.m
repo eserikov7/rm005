@@ -11,6 +11,7 @@
 #import "Constants.h"
 #import "NetworkingManager.h"
 #import "ServersModel.h"
+#import "PushManager.h"
 
 @implementation ServerInfo
 
@@ -118,6 +119,12 @@
 - (void)setPushAtHolidays:(BOOL)pushAtHolidays
 {
     [[ServersModel instance].storage setObject:@(pushAtHolidays) forKey:kPushAtHolidays];
+    
+    if([ServersModel activeServer])
+    {
+        [[PushManager instance] addPushAtTime:[ServersModel activeServer].pushDate forUser:[ServersModel activeServer].login];
+    }
+    
 }
 
 - (NSDate *)pushDate
@@ -125,6 +132,7 @@
     
     NSDate * pushDate = [[ServersModel instance].storage objectForKey:kPushDate];
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    
     if(pushDate == nil)
     {
         
@@ -151,7 +159,8 @@
     currComps.hour = pushComps.hour;
 
     while (((self.pushAtHolidays == NO) && ([currComps weekday] == 1||[currComps weekday]==7||[currComps weekday]==8 ))||
-           [[[NSCalendar currentCalendar] dateFromComponents:currComps] compare:[NSDate date]] == NSOrderedAscending) {
+           [[[NSCalendar currentCalendar] dateFromComponents:currComps] compare:[NSDate date]] == NSOrderedAscending)
+    {
         currComps.day++;
         currComps.weekday++;
     }
@@ -164,15 +173,10 @@
 {
     [[ServersModel instance].storage setObject:pushDate forKey:kPushDate];
     
-    [[UIApplication sharedApplication] cancelAllLocalNotifications];
-    
-    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
-    localNotification.fireDate = [ServersModel activeServer].pushDate;
-    localNotification.alertBody = @"Нужно проверить время";
-    localNotification.timeZone = [NSTimeZone defaultTimeZone];
-    localNotification.repeatInterval = kCFCalendarUnitMinute;
-    localNotification.soundName = UILocalNotificationDefaultSoundName;
-    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    if([ServersModel activeServer])
+    {
+        [[PushManager instance] addPushAtTime:[ServersModel activeServer].pushDate forUser:[ServersModel activeServer].login];
+    }
     
 }
 

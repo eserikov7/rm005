@@ -8,6 +8,7 @@
 
 #import "UIIssuesListVC.h"
 #import "IssueModel.h"
+#import <BlocksKit+UIKit.h>
 
 @interface UIIssuesListVC ()
 
@@ -25,11 +26,13 @@
     [super viewDidLoad];
     initCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"projectCell"];
     
-    [self.project loadIssuesSuccess:^{
-        [table reloadData];
-    } failure:^(NSError *error) {
-        
-    }];
+    [self.project loadIssuesOffset:0
+                             limit:25
+                           success:^{
+                               [table reloadData];
+                           } failure:^(NSError *error) {
+                               
+                           }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -85,6 +88,43 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+ 
+    UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"issues_ailible_actions", @"")
+                                                       delegate:nil
+                                              cancelButtonTitle:NSLocalizedString(@"ids_cancel", @"")
+                                         destructiveButtonTitle:nil
+                                              otherButtonTitles:
+                            @"В работу",
+                            @"В работу(+таймер)",
+                            @"В тестирование",
+                            @"Закрыть",
+                            nil];
+    [popup showInView:[UIApplication sharedApplication].keyWindow];
+    
+    [popup bk_setDidDismissBlock:^(UIActionSheet *actionSheet, NSInteger index) {
+        
+    }];
+}
+
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if( scrollView.contentSize.height - scrollView.contentOffset.y<table.frame.size.height &&
+       self.project.issues.count>0 &&
+       self.project.issues.count<self.project.issuesCount )
+    {
+        
+        [self.project loadIssuesOffset:self.project.issues.count
+                                 limit:25
+                               success:^{
+                                   [table reloadData];
+                               } failure:^(NSError *error) {
+                                   
+                               }];
+
+        
+    }
+    
     
 }
 

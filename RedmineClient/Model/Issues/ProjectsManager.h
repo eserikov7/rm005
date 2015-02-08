@@ -12,7 +12,10 @@
 @interface ProjectsManager : NSObject
 
 @property(nonatomic,readonly)NSArray* projects;
+@property(nonatomic,readonly)NSInteger projectsCount;
 
-- (void)loadProjectsSuccess:(void (^)())success
+- (void)loadProjectsOffset:(NSInteger)offset
+                     limit:(NSInteger)limit
+                   success:(void (^)())success
                     failure:(void (^)( NSError *error))failure;
 @end

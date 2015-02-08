@@ -24,7 +24,7 @@
 {
     _timeEntry = timeEntry;
     
-    self.timeEnteryTitle.text = [NSString stringWithFormat:@"%@ (#%@)", timeEntry.project.name, timeEntry.issue.Id];
+    self.timeEnteryTitle.text = [NSString stringWithFormat:@"%@ (#%ld)", timeEntry.project.name, (long)timeEntry.issue.Id];
     self.timeValue.text = [NSString stringWithFormat:@"%.2f ч.",timeEntry.hours];
 }
 

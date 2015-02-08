@@ -31,7 +31,19 @@
 
     NetworkingManager* manager = [NetworkingManager manager];
     
-    [manager GET:[[url absoluteString] stringByAppendingString:@"?f[]=user_id&op[user_id]==&v[user_id][]=me&limit=90"]
+    NSDateComponents *currComps = [[NSCalendar currentCalendar] components:kCFCalendarUnitYear| kCFCalendarUnitMonth|kCFCalendarUnitDay|kCFCalendarUnitHour|kCFCalendarUnitMinute
+                                               fromDate:[NSDate date]];
+    currComps.day -=8;
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    
+    NSString* sUrl = [NSString stringWithFormat:@"%@?f[]=spent_on&op[spent_on]=>=&v[spent_on][]=%@&f[]=user_id&op[user_id]==&v[user_id][]=me&limit=100",
+                      [url absoluteString],
+                      [dateFormatter stringFromDate:[[NSCalendar currentCalendar] dateFromComponents:currComps]]];
+    
+    
+    [manager GET:sUrl
       parameters:nil
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              
@@ -40,6 +52,7 @@
                  [self parce:responseObject];
                  
              }
+             
              
              if(success)
                  success();
@@ -53,29 +66,16 @@
 
 - (void)parce:(NSDictionary*)dict
 {
-    if ([dict objectForKey:@"time_entries"]) {
+    if ([dict objectForKey:@"time_entries"])
+    {
  
-
-        NSDateComponents* components = [[NSCalendar currentCalendar] components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit)
-                                                                       fromDate:[NSDate date]];
-        
-        NSDate *currentDate =[[NSCalendar currentCalendar] dateFromComponents:components];
-
-        _todaySpentTime = 0;
         NSMutableArray* items = [NSMutableArray array];
         for(NSDictionary*itemDict in [dict objectForKey:@"time_entries"])
         {
             TimeEntry * entry = [[TimeEntry alloc] init];
             [entry parce:itemDict];
-            
-            NSDateComponents* components = [[NSCalendar currentCalendar] components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit)
-                                                                           fromDate:entry.spent_on];
 
-            if([currentDate isEqualToDate:[[NSCalendar currentCalendar] dateFromComponents:components]])
-            {
-                _todaySpentTime += entry.hours;
-                [items addObject:entry];
-            }
+            [items addObject:entry];
         }
         _timeEntries = items;
     }
