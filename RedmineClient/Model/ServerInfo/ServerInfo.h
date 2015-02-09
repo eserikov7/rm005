@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "TimeEntries.h"
 #import "ProjectsManager.h"
+#import "ActionsModel.h"
 
 @interface ServerInfo : NSObject
 
@@ -28,6 +29,7 @@
 
 @property(nonatomic,readonly)TimeEntries * timeEntries;
 @property(nonatomic,readonly)ProjectsManager * projectsManager;
+@property(nonatomic,readonly)ActionsModel *actionsModel;
 
 - (instancetype)initWithServerName:(NSString*)serverName
                       serverDomain:(NSString*)serverDomain;

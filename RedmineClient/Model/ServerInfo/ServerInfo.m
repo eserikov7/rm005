@@ -24,6 +24,8 @@
     NSString* lastName;
     TimeEntries* _timeEntries;
     ProjectsManager* _projectsManager;
+    
+    ActionsModel* _actionsModel;
 }
 - (instancetype)initWithServerName:(NSString*)name
                       serverDomain:(NSString*)domain
@@ -65,6 +67,13 @@
     [encoder encodeObject:apiKey forKey:@"apiKey"];
     [encoder encodeObject:firstName forKey:@"firstName"];
     [encoder encodeObject:lastName forKey:@"lastName"];
+}
+
+- (ActionsModel*)actionsModel
+{
+    if(_actionsModel == nil)
+        _actionsModel = [[ActionsModel alloc] init];
+    return _actionsModel;
 }
 
 - (ProjectsManager *)projectsManager

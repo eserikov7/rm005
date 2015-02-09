@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		613EC6ED1A88BD2800C733B4 /* UIActionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 613EC6EC1A88BD2800C733B4 /* UIActionsVC.m */; };
+		613EC6F11A88BDE700C733B4 /* ActionsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 613EC6F01A88BDE700C733B4 /* ActionsModel.m */; };
+		613EC6F41A88BDF700C733B4 /* ActionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 613EC6F31A88BDF700C733B4 /* ActionInfo.m */; };
+		613EC6F81A88C67D00C733B4 /* UIActionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 613EC6F71A88C67D00C733B4 /* UIActionCell.m */; };
 		614A56741A83B11400C3E9E8 /* TimeEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 614A56731A83B11400C3E9E8 /* TimeEntry.m */; };
 		614A56781A83B50900C3E9E8 /* UITimeEnteryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 614A56771A83B50900C3E9E8 /* UITimeEnteryCell.m */; };
 		614A567B1A83B52300C3E9E8 /* UIFullTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 614A567A1A83B52300C3E9E8 /* UIFullTimeCell.m */; };
@@ -55,6 +59,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		613EC6EB1A88BD2800C733B4 /* UIActionsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIActionsVC.h; sourceTree = "<group>"; };
+		613EC6EC1A88BD2800C733B4 /* UIActionsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIActionsVC.m; sourceTree = "<group>"; };
+		613EC6EF1A88BDE700C733B4 /* ActionsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionsModel.h; sourceTree = "<group>"; };
+		613EC6F01A88BDE700C733B4 /* ActionsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionsModel.m; sourceTree = "<group>"; };
+		613EC6F21A88BDF700C733B4 /* ActionInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionInfo.h; sourceTree = "<group>"; };
+		613EC6F31A88BDF700C733B4 /* ActionInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionInfo.m; sourceTree = "<group>"; };
+		613EC6F61A88C67D00C733B4 /* UIActionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIActionCell.h; sourceTree = "<group>"; };
+		613EC6F71A88C67D00C733B4 /* UIActionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIActionCell.m; sourceTree = "<group>"; };
 		614A56721A83B11400C3E9E8 /* TimeEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeEntry.h; sourceTree = "<group>"; };
 		614A56731A83B11400C3E9E8 /* TimeEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeEntry.m; sourceTree = "<group>"; };
 		614A56761A83B50900C3E9E8 /* UITimeEnteryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITimeEnteryCell.h; sourceTree = "<group>"; };
@@ -151,6 +163,36 @@
 				C1B65950B408879EA6434C64 /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		613EC6EA1A88BCF200C733B4 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				613EC6F51A88C66100C733B4 /* Views */,
+				613EC6EB1A88BD2800C733B4 /* UIActionsVC.h */,
+				613EC6EC1A88BD2800C733B4 /* UIActionsVC.m */,
+			);
+			path = Actions;
+			sourceTree = "<group>";
+		};
+		613EC6EE1A88BDCD00C733B4 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				613EC6EF1A88BDE700C733B4 /* ActionsModel.h */,
+				613EC6F01A88BDE700C733B4 /* ActionsModel.m */,
+				613EC6F21A88BDF700C733B4 /* ActionInfo.h */,
+				613EC6F31A88BDF700C733B4 /* ActionInfo.m */,
+			);
+			path = Actions;
+			sourceTree = "<group>";
+		};
+		613EC6F51A88C66100C733B4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				613EC6F61A88C67D00C733B4 /* UIActionCell.h */,
+				613EC6F71A88C67D00C733B4 /* UIActionCell.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		614A56751A83B4EB00C3E9E8 /* Views */ = {
@@ -256,6 +298,7 @@
 		61C8029A1A80279900AAB29D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				613EC6EE1A88BDCD00C733B4 /* Actions */,
 				61C806B91A86A80900AAB29D /* PushManager */,
 				61C806A11A83E2A200AAB29D /* Issues */,
 				61950E591A824F520044D06D /* TimeEntries */,
@@ -272,6 +315,7 @@
 		61C8029B1A80279900AAB29D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				613EC6EA1A88BCF200C733B4 /* Actions */,
 				61C806AF1A8418CB00AAB29D /* Issues */,
 				61C806A81A83EA5800AAB29D /* Settings */,
 				61950E5D1A8367690044D06D /* Time */,
@@ -532,6 +576,7 @@
 				61C806AB1A83EA6A00AAB29D /* UISettingsVC.m in Sources */,
 				61C802AF1A802ED600AAB29D /* ErrorHandler.m in Sources */,
 				61C806CB1A87BEEC00AAB29D /* PriorityModel.m in Sources */,
+				613EC6F11A88BDE700C733B4 /* ActionsModel.m in Sources */,
 				61C802B01A802ED600AAB29D /* NetworkingManager.m in Sources */,
 				61C802771A801B5F00AAB29D /* AppDelegate.m in Sources */,
 				61C806C81A87BED900AAB29D /* StatusModel.m in Sources */,
@@ -539,9 +584,11 @@
 				61C8027D1A801B5F00AAB29D /* ViewController.m in Sources */,
 				61C806BF1A86A9D000AAB29D /* PushInfo.m in Sources */,
 				61950E641A8367F60044D06D /* UITimeEntriesInfoVC.m in Sources */,
+				613EC6F81A88C67D00C733B4 /* UIActionCell.m in Sources */,
 				61C806A71A83E2CD00AAB29D /* IssueModel.m in Sources */,
 				61C806CE1A87BF0200AAB29D /* UserModel.m in Sources */,
 				61C802A11A802B4600AAB29D /* ServerInfo.m in Sources */,
+				613EC6F41A88BDF700C733B4 /* ActionInfo.m in Sources */,
 				61C806BC1A86A82500AAB29D /* PushManager.m in Sources */,
 				614A56781A83B50900C3E9E8 /* UITimeEnteryCell.m in Sources */,
 				61C802A41A802B5D00AAB29D /* ServersModel.m in Sources */,
@@ -550,6 +597,7 @@
 				61C806D11A87D53200AAB29D /* TimeEntriesAtDate.m in Sources */,
 				61C802B71A814E3700AAB29D /* UILoginVC.m in Sources */,
 				61950E5C1A824F5E0044D06D /* TimeEntries.m in Sources */,
+				613EC6ED1A88BD2800C733B4 /* UIActionsVC.m in Sources */,
 				61C802741A801B5F00AAB29D /* main.m in Sources */,
 				61C806C51A87BEC400AAB29D /* TrackerModel.m in Sources */,
 				61C806AE1A840C0100AAB29D /* ProjectsManager.m in Sources */,
