@@ -26,6 +26,8 @@
     ProjectsManager* _projectsManager;
     
     ActionsModel* _actionsModel;
+    
+    RedmineInfo* _redmineInfo;
 }
 - (instancetype)initWithServerName:(NSString*)name
                       serverDomain:(NSString*)domain
@@ -67,6 +69,14 @@
     [encoder encodeObject:apiKey forKey:@"apiKey"];
     [encoder encodeObject:firstName forKey:@"firstName"];
     [encoder encodeObject:lastName forKey:@"lastName"];
+}
+
+- (RedmineInfo *)redmineInfo
+{
+    if(_redmineInfo == nil)
+        _redmineInfo = [[RedmineInfo alloc] init];
+    return _redmineInfo;
+    
 }
 
 - (ActionsModel*)actionsModel
@@ -210,6 +220,9 @@
                                      [self parce:[responseObject objectForKey:@"user"]];
                                  }
                                  accPassword = password;
+
+                                 [self loadGeneralInfo];
+
                                  if(success)
                                      success();
                                  
@@ -234,6 +247,9 @@
                                  {
                                      [self parce:[responseObject objectForKey:@"user"]];
                                  }
+                                 
+                                 [self loadGeneralInfo];
+                                 
                                  if(success)
                                      success();
                                  
@@ -241,6 +257,15 @@
                                  if(failure)
                                      failure(error);
                              }];
+}
+
+- (void)loadGeneralInfo
+{
+    [self.redmineInfo loadInfoSuccess:^{
+        
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 - (void)parce:(NSDictionary*)dict
@@ -252,6 +277,8 @@
     uid = [dict objectForKey:@"id"];
     firstName = [dict objectForKey:@"firstname"];
     lastName = [dict objectForKey:@"lastname"];
+    
+
 
 }
 

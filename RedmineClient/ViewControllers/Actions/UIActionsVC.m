@@ -28,7 +28,7 @@
     ActionInfo* action = [[ActionInfo alloc] init];
     [[ServersModel activeServer].actionsModel addActionInfo:action];
     
-    action.name = [NSString stringWithFormat:@"Action %ld", action.Id];
+    action.name = [NSString stringWithFormat:@"Action %ld", (long)action.Id];
     [table reloadData];
 }
 

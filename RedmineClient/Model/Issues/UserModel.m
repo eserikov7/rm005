@@ -21,6 +21,25 @@
 {
     self.Id = [[dict objectForKey:@"id"] integerValue];
     self.name = [dict objectForKey:@"name"];
+    if(self.name == nil)
+        self.name = [NSString stringWithFormat:@"%@ %@",[dict objectForKey:@"firstname"],[dict objectForKey:@"lastname"]];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    
+    self = [super init];
+    if (self) {
+        _Id = [decoder decodeIntegerForKey:@"_Id"];
+        _name = [decoder decodeObjectForKey:@"_name"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
+    [encoder encodeInteger:_Id forKey:@"_Id"];
+    [encoder encodeObject:_name forKey:@"_name"];
 }
 
 @end

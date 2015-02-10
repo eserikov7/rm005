@@ -22,7 +22,10 @@
 #define kProjectsList @"projects.json"
 #define kIssuesList @"issues.json"
 
+#define kIssueStatusesList @"issue_statuses.json"
+#define kUsersList @"users.json"
 
+#define kMembershipsList @"memberships.json"
 
 #define kPushDate @"PushDate"
 #define kPushAtHolidays @"kPushAtHolidays"

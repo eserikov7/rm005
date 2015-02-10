@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ActionInfo.h"
 
-@interface UIActionCell : UITableViewCell<UITextViewDelegate>
+@interface UIActionCell : UITableViewCell<UITextViewDelegate,UIPickerViewDataSource,UIPickerViewDelegate>
 
 @property(nonatomic)IBOutlet UILabel* nameTtl;
 @property(nonatomic)IBOutlet UITextField* name;

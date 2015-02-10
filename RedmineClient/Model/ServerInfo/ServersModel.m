@@ -59,6 +59,7 @@
     return appStorage;
 }
 
+
 - (void)loginWithUser:(NSString*)login
              password:(NSString*)password
               success:(void (^)())success

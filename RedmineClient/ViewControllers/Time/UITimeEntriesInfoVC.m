@@ -135,8 +135,21 @@
     if(indexPath.row == 0)
     {
         TimeEntriesAtDate*timeEntriesAtDate = [items objectAtIndex:indexPath.section];
+        
+
+        NSDateComponents *components = [[NSCalendar currentCalendar] components: NSWeekdayCalendarUnit
+                                                   fromDate:timeEntriesAtDate.date];
+
         UIFullTimeCell* cell = [tableView dequeueReusableCellWithIdentifier:@"UIFullTimeCell"];
         
+        if(components.weekday == 1 || components.weekday == 7)
+        {
+            cell.contentView.backgroundColor = [UIColor colorWithWhite:0.8 alpha:1.0];
+        }
+        else
+        {
+            cell.contentView.backgroundColor = [UIColor whiteColor];
+        }
         int hours = (int)(timeEntriesAtDate.todaySpentTime);
         int mins = (timeEntriesAtDate.todaySpentTime-hours)*60.0;
         cell.timeValue.text = [NSString stringWithFormat:@"%d ч. %d мин.", hours, mins];

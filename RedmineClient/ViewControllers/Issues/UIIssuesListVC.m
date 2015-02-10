@@ -9,6 +9,7 @@
 #import "UIIssuesListVC.h"
 #import "IssueModel.h"
 #import <BlocksKit+UIKit.h>
+#import "ServersModel.h"
 
 @interface UIIssuesListVC ()
 
@@ -89,16 +90,20 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
  
+
     UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"issues_ailible_actions", @"")
                                                        delegate:nil
                                               cancelButtonTitle:NSLocalizedString(@"ids_cancel", @"")
                                          destructiveButtonTitle:nil
                                               otherButtonTitles:
-                            @"В работу",
-                            @"В работу(+таймер)",
-                            @"В тестирование",
-                            @"Закрыть",
+                            @"Изменить",
                             nil];
+    for(int i = 0; i<[ServersModel activeServer].actionsModel.actions.count;i++)
+    {
+        if(((ActionInfo*)[[ServersModel activeServer].actionsModel.actions objectAtIndex:i]).name)
+            [popup addButtonWithTitle:((ActionInfo*)[[ServersModel activeServer].actionsModel.actions objectAtIndex:i]).name];
+    }
+
     [popup showInView:[UIApplication sharedApplication].keyWindow];
     
     [popup bk_setDidDismissBlock:^(UIActionSheet *actionSheet, NSInteger index) {

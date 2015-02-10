@@ -19,11 +19,17 @@
 @property(nonatomic,readonly)NSArray* childProjects;
 
 @property(nonatomic,readonly)NSInteger issuesCount;
+
 @property(nonatomic,readonly)NSArray* issues;
+@property(nonatomic,readonly)NSArray* users;
 
 - (void)loadIssuesOffset:(NSInteger)offset
                    limit:(NSInteger)limit
                  success:(void (^)())success
+                 failure:(void (^)( NSError *error))failure;
+
+
+- (void)loadUsersSuccess:(void (^)())success
                  failure:(void (^)( NSError *error))failure;
 
 - (void)parce:(NSDictionary*)dict;

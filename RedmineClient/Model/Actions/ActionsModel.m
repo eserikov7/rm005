@@ -7,6 +7,7 @@
 //
 
 #import "ActionsModel.h"
+#import "ServersModel.h"
 
 @implementation ActionsModel
 {
@@ -17,10 +18,13 @@
 {
     self = [super init];
     
-    _actions = [NSMutableArray array];
+    _actions = [[ServersModel instance].storage objectForKey:@"ActionsModelActions"];
+    if(_actions == nil)
+        _actions = [NSMutableArray array];
     
     return self;
 }
+
 
 - (void)addActionInfo:(ActionInfo*)actionInfo
 {
@@ -36,11 +40,21 @@
     }
 
     [_actions addObject:actionInfo];
+    
+    [self saveState];
+    
 }
 
 - (void)replaceActionInfo:(ActionInfo*)actionInfo
 {
     [_actions replaceObjectAtIndex:[_actions indexOfObject:actionInfo] withObject:actionInfo];
+    
+    [self saveState];
+}
+
+- (void)saveState
+{
+    [[ServersModel instance].storage setObject:_actions forKey:@"ActionsModelActions"];
 }
 
 @end

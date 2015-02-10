@@ -11,6 +11,7 @@
 		613EC6F11A88BDE700C733B4 /* ActionsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 613EC6F01A88BDE700C733B4 /* ActionsModel.m */; };
 		613EC6F41A88BDF700C733B4 /* ActionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 613EC6F31A88BDF700C733B4 /* ActionInfo.m */; };
 		613EC6F81A88C67D00C733B4 /* UIActionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 613EC6F71A88C67D00C733B4 /* UIActionCell.m */; };
+		613ECA371A89E40E00C733B4 /* RedmineInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 613ECA361A89E40E00C733B4 /* RedmineInfo.m */; };
 		614A56741A83B11400C3E9E8 /* TimeEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 614A56731A83B11400C3E9E8 /* TimeEntry.m */; };
 		614A56781A83B50900C3E9E8 /* UITimeEnteryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 614A56771A83B50900C3E9E8 /* UITimeEnteryCell.m */; };
 		614A567B1A83B52300C3E9E8 /* UIFullTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 614A567A1A83B52300C3E9E8 /* UIFullTimeCell.m */; };
@@ -67,6 +68,8 @@
 		613EC6F31A88BDF700C733B4 /* ActionInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionInfo.m; sourceTree = "<group>"; };
 		613EC6F61A88C67D00C733B4 /* UIActionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIActionCell.h; sourceTree = "<group>"; };
 		613EC6F71A88C67D00C733B4 /* UIActionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIActionCell.m; sourceTree = "<group>"; };
+		613ECA351A89E40E00C733B4 /* RedmineInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedmineInfo.h; sourceTree = "<group>"; };
+		613ECA361A89E40E00C733B4 /* RedmineInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedmineInfo.m; sourceTree = "<group>"; };
 		614A56721A83B11400C3E9E8 /* TimeEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeEntry.h; sourceTree = "<group>"; };
 		614A56731A83B11400C3E9E8 /* TimeEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeEntry.m; sourceTree = "<group>"; };
 		614A56761A83B50900C3E9E8 /* UITimeEnteryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITimeEnteryCell.h; sourceTree = "<group>"; };
@@ -195,6 +198,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		613ECA341A89E3F800C733B4 /* RedmineInfo */ = {
+			isa = PBXGroup;
+			children = (
+				613ECA351A89E40E00C733B4 /* RedmineInfo.h */,
+				613ECA361A89E40E00C733B4 /* RedmineInfo.m */,
+			);
+			path = RedmineInfo;
+			sourceTree = "<group>";
+		};
 		614A56751A83B4EB00C3E9E8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,6 +310,7 @@
 		61C8029A1A80279900AAB29D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				613ECA341A89E3F800C733B4 /* RedmineInfo */,
 				613EC6EE1A88BDCD00C733B4 /* Actions */,
 				61C806B91A86A80900AAB29D /* PushManager */,
 				61C806A11A83E2A200AAB29D /* Issues */,
@@ -602,6 +615,7 @@
 				61C806C51A87BEC400AAB29D /* TrackerModel.m in Sources */,
 				61C806AE1A840C0100AAB29D /* ProjectsManager.m in Sources */,
 				61C806A41A83E2BC00AAB29D /* ProjectModel.m in Sources */,
+				613ECA371A89E40E00C733B4 /* RedmineInfo.m in Sources */,
 				61C802C01A8168BC00AAB29D /* AppStorage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

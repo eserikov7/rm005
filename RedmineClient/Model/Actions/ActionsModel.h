@@ -17,4 +17,5 @@
 
 - (void)replaceActionInfo:(ActionInfo*)actionInfo;
 
+- (void)saveState;
 @end
