@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "ServersModel.h"
 #import "PushManager.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
 
 @interface AppDelegate ()
 
@@ -19,6 +21,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
+    [Fabric with:@[CrashlyticsKit]];
+    
     if([ServersModel activeServer])
     {
         UIViewController*vc = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"appTabBarController"];

@@ -12,6 +12,8 @@
 		613EC6F41A88BDF700C733B4 /* ActionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 613EC6F31A88BDF700C733B4 /* ActionInfo.m */; };
 		613EC6F81A88C67D00C733B4 /* UIActionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 613EC6F71A88C67D00C733B4 /* UIActionCell.m */; };
 		613ECA371A89E40E00C733B4 /* RedmineInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 613ECA361A89E40E00C733B4 /* RedmineInfo.m */; };
+		613ECD781A8DF29500C733B4 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 613ECD761A8DF29500C733B4 /* Crashlytics.framework */; };
+		613ECD791A8DF29500C733B4 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 613ECD771A8DF29500C733B4 /* Fabric.framework */; };
 		614A56741A83B11400C3E9E8 /* TimeEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 614A56731A83B11400C3E9E8 /* TimeEntry.m */; };
 		614A56781A83B50900C3E9E8 /* UITimeEnteryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 614A56771A83B50900C3E9E8 /* UITimeEnteryCell.m */; };
 		614A567B1A83B52300C3E9E8 /* UIFullTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 614A567A1A83B52300C3E9E8 /* UIFullTimeCell.m */; };
@@ -70,6 +72,8 @@
 		613EC6F71A88C67D00C733B4 /* UIActionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIActionCell.m; sourceTree = "<group>"; };
 		613ECA351A89E40E00C733B4 /* RedmineInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedmineInfo.h; sourceTree = "<group>"; };
 		613ECA361A89E40E00C733B4 /* RedmineInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedmineInfo.m; sourceTree = "<group>"; };
+		613ECD761A8DF29500C733B4 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		613ECD771A8DF29500C733B4 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		614A56721A83B11400C3E9E8 /* TimeEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeEntry.h; sourceTree = "<group>"; };
 		614A56731A83B11400C3E9E8 /* TimeEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeEntry.m; sourceTree = "<group>"; };
 		614A56761A83B50900C3E9E8 /* UITimeEnteryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITimeEnteryCell.h; sourceTree = "<group>"; };
@@ -146,7 +150,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				613ECD781A8DF29500C733B4 /* Crashlytics.framework in Frameworks */,
 				A58F309CAE9A323B25026335 /* libPods.a in Frameworks */,
+				613ECD791A8DF29500C733B4 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +170,8 @@
 			isa = PBXGroup;
 			children = (
 				C1B65950B408879EA6434C64 /* libPods.a */,
+				613ECD761A8DF29500C733B4 /* Crashlytics.framework */,
+				613ECD771A8DF29500C733B4 /* Fabric.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -458,6 +466,7 @@
 				61C8026B1A801B5F00AAB29D /* Frameworks */,
 				61C8026C1A801B5F00AAB29D /* Resources */,
 				04AA769AB62193E65C96ED2B /* Copy Pods Resources */,
+				613ECD751A8DF23300C733B4 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -560,6 +569,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		613ECD751A8DF23300C733B4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run b147b97521ec37d88f58a213103124d17084a064 5ba681c27b3506690500db0f430ded6846c536c08b9f920dd0f509add480d2be";
 		};
 		9DAB1EE0B24264363EDA505D /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -746,6 +768,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = RedmineClient/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -763,6 +789,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = RedmineClient/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
