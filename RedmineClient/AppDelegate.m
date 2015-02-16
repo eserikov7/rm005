@@ -21,6 +21,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
+    [[Crashlytics sharedInstance] setDebugMode:YES];
     [Fabric with:@[CrashlyticsKit]];
     
     if([ServersModel activeServer])
@@ -32,6 +33,8 @@
     
     [self registerForRemoteNotifications];
 
+
+    
     return YES;
 }
 

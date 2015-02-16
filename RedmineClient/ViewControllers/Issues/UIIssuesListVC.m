@@ -10,7 +10,7 @@
 #import "IssueModel.h"
 #import <BlocksKit+UIKit.h>
 #import "ServersModel.h"
-
+#import "UIIssueUpdateStateVC.h"
 @interface UIIssuesListVC ()
 
 @end
@@ -107,7 +107,9 @@
     [popup showInView:[UIApplication sharedApplication].keyWindow];
     
     [popup bk_setDidDismissBlock:^(UIActionSheet *actionSheet, NSInteger index) {
-        
+        UINavigationController *nc = [self.storyboard instantiateViewControllerWithIdentifier:@"UIIssueUpdateStateNC"];
+        ((UIIssueUpdateStateVC*)(nc.topViewController)).actionInfo = [[ActionInfo alloc] init];
+        [self.navigationController presentViewController:nc animated:YES completion:nil];
     }];
 }
 

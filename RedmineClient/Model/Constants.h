@@ -22,6 +22,8 @@
 #define kProjectsList @"projects.json"
 #define kIssuesList @"issues.json"
 
+#define kIssueTimeEntryActivitiesList "enumerations/time_entry_activities.json"
+
 #define kIssueStatusesList @"issue_statuses.json"
 #define kUsersList @"users.json"
 

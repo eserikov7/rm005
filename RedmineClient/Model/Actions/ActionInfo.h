@@ -25,6 +25,8 @@
 
 @property(nonatomic)NSInteger done_ratio;
 
+@property(nonatomic)float time;
+
 @property(nonatomic)NSString* defaultDescription;
 
 @end

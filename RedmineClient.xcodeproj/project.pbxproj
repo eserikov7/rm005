@@ -17,6 +17,8 @@
 		614A56741A83B11400C3E9E8 /* TimeEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 614A56731A83B11400C3E9E8 /* TimeEntry.m */; };
 		614A56781A83B50900C3E9E8 /* UITimeEnteryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 614A56771A83B50900C3E9E8 /* UITimeEnteryCell.m */; };
 		614A567B1A83B52300C3E9E8 /* UIFullTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 614A567A1A83B52300C3E9E8 /* UIFullTimeCell.m */; };
+		61926E4D1A92835E00649C40 /* UIIssueUpdateStateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 61926E4C1A92835E00649C40 /* UIIssueUpdateStateVC.m */; };
+		61926E511A9283DA00649C40 /* UIIssueStateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61926E501A9283DA00649C40 /* UIIssueStateCell.m */; };
 		61950E5C1A824F5E0044D06D /* TimeEntries.m in Sources */ = {isa = PBXBuildFile; fileRef = 61950E5B1A824F5E0044D06D /* TimeEntries.m */; };
 		61950E641A8367F60044D06D /* UITimeEntriesInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 61950E631A8367F60044D06D /* UITimeEntriesInfoVC.m */; };
 		61C802741A801B5F00AAB29D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C802731A801B5F00AAB29D /* main.m */; };
@@ -80,6 +82,10 @@
 		614A56771A83B50900C3E9E8 /* UITimeEnteryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITimeEnteryCell.m; sourceTree = "<group>"; };
 		614A56791A83B52300C3E9E8 /* UIFullTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFullTimeCell.h; sourceTree = "<group>"; };
 		614A567A1A83B52300C3E9E8 /* UIFullTimeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFullTimeCell.m; sourceTree = "<group>"; };
+		61926E4B1A92835E00649C40 /* UIIssueUpdateStateVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIIssueUpdateStateVC.h; sourceTree = "<group>"; };
+		61926E4C1A92835E00649C40 /* UIIssueUpdateStateVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIIssueUpdateStateVC.m; sourceTree = "<group>"; };
+		61926E4F1A9283DA00649C40 /* UIIssueStateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIIssueStateCell.h; sourceTree = "<group>"; };
+		61926E501A9283DA00649C40 /* UIIssueStateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIIssueStateCell.m; sourceTree = "<group>"; };
 		61950E5A1A824F5E0044D06D /* TimeEntries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeEntries.h; sourceTree = "<group>"; };
 		61950E5B1A824F5E0044D06D /* TimeEntries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeEntries.m; sourceTree = "<group>"; };
 		61950E621A8367F60044D06D /* UITimeEntriesInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITimeEntriesInfoVC.h; sourceTree = "<group>"; };
@@ -224,6 +230,15 @@
 				614A567A1A83B52300C3E9E8 /* UIFullTimeCell.m */,
 				61C806CF1A87D53200AAB29D /* TimeEntriesAtDate.h */,
 				61C806D01A87D53200AAB29D /* TimeEntriesAtDate.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		61926E4E1A9283BF00649C40 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				61926E4F1A9283DA00649C40 /* UIIssueStateCell.h */,
+				61926E501A9283DA00649C40 /* UIIssueStateCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -425,10 +440,13 @@
 		61C806AF1A8418CB00AAB29D /* Issues */ = {
 			isa = PBXGroup;
 			children = (
+				61926E4E1A9283BF00649C40 /* Views */,
 				61C806B31A8419C700AAB29D /* UIProjectsListVC.h */,
 				61C806B41A8419C700AAB29D /* UIProjectsListVC.m */,
 				61C806B61A841FD700AAB29D /* UIIssuesListVC.h */,
 				61C806B71A841FD700AAB29D /* UIIssuesListVC.m */,
+				61926E4B1A92835E00649C40 /* UIIssueUpdateStateVC.h */,
+				61926E4C1A92835E00649C40 /* UIIssueUpdateStateVC.m */,
 			);
 			path = Issues;
 			sourceTree = "<group>";
@@ -614,6 +632,7 @@
 				613EC6F11A88BDE700C733B4 /* ActionsModel.m in Sources */,
 				61C802B01A802ED600AAB29D /* NetworkingManager.m in Sources */,
 				61C802771A801B5F00AAB29D /* AppDelegate.m in Sources */,
+				61926E511A9283DA00649C40 /* UIIssueStateCell.m in Sources */,
 				61C806C81A87BED900AAB29D /* StatusModel.m in Sources */,
 				61C8027A1A801B5F00AAB29D /* RedmineClient.xcdatamodeld in Sources */,
 				61C8027D1A801B5F00AAB29D /* ViewController.m in Sources */,
@@ -629,6 +648,7 @@
 				61C802A41A802B5D00AAB29D /* ServersModel.m in Sources */,
 				614A56741A83B11400C3E9E8 /* TimeEntry.m in Sources */,
 				614A567B1A83B52300C3E9E8 /* UIFullTimeCell.m in Sources */,
+				61926E4D1A92835E00649C40 /* UIIssueUpdateStateVC.m in Sources */,
 				61C806D11A87D53200AAB29D /* TimeEntriesAtDate.m in Sources */,
 				61C802B71A814E3700AAB29D /* UILoginVC.m in Sources */,
 				61950E5C1A824F5E0044D06D /* TimeEntries.m in Sources */,
